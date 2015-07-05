@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./plantillaAdmin.xhtml">
+
+            <ui:define name="content">
+                <f:view>
+                    <h1><h:outputText value="Perfiles" /></h1>
+
+                    <h:form>                
+                        <p:menubar style="height: 26px; padding-right: 1%">
+                            <p:menuitem value="Actualizar" update="perfilList" icon="ui-icon-arrowrefresh-1-w" ajax="false"/> 
+                        </p:menubar>   
+                        <p:messages closable="true" showSummary="true"/> 
+
+                        <p:dataTable var="rol" value="#{perfilBean.listado()}" id="perfilList" 
+                                     editable="true" style="width: 500px" >  
+                            <p:menubar />
+                            <f:facet name="header">  
+                                Listado de Perfiles
+                            </f:facet>  
+
+                            <p:ajax event="rowEdit" listener="#{perfilesBean.modificar}" />
+
+                            <p:column headerText="Codigo" style="width:50px">  
+                                <h:outputText value="#{rol.idperfil}" />  
+                            </p:column>  
+
+                            <p:column headerText="Nombre" >  
+                                <p:cellEditor>  
+                                    <f:facet name="output">  
+                                        <h:outputText value="#{rol.descperfil}" />  
+                                    </f:facet>  
+                                    <f:facet name="input">  
+                                        <p:inputText value="#{rol.descperfil}" />  
+                                    </f:facet>  
+                                </p:cellEditor>  
+                            </p:column>
+                            <p:column headerText="Editar" style="width:30px">  
+                                <p:rowEditor/>  
+                            </p:column>  
+                        </p:dataTable>
+
+                        <h3>Seleccione Los modulos que quiere queden activos en el perfil</h3>
+
+                        <h4>Selccione el Perfil a modificar</h4>
+
+                        <p:selectOneMenu value="#{perfilBean.idperfil}" style="width: 180px" required="true" >
+                            <f:selectItem itemLabel="Seleccione" itemValue=""/>
+                            <f:selectItems value="#{perfilBean.listado()}" var="perfil"
+                                           itemLabel="#{perfil.descperfil}" itemValue="#{perfil.idperfil}" />
+                        </p:selectOneMenu><br/>
+
+                        <h4>Proceso</h4>
+                        <p:selectManyCheckbox id="proceso" value="#{perfilBean.proceso}" layout="grid" 
+                                              columns="3" style="width: 500px">
+                            <f:selectItem itemLabel="Riesgo" itemValue="riesgo"/>
+                            <f:selectItem itemLabel="Proceso" itemValue="proceso"/>
+                            <f:selectItem itemLabel="Panorama de Riesgos" itemValue="panorama"/>
+                            <f:selectItem itemLabel="Valoracion" itemValue="valoracion"/>
+                            <f:selectItem itemLabel="Mejoramiento" itemValue="mejoramiento"/>
+                        </p:selectManyCheckbox>
+                        <p:separator/>
+
+                        <h4>Funcionarios</h4>
+                        <p:selectManyCheckbox id="funcionarios" value="#{perfilBean.funcionario}" layout="grid" 
+                                              columns="3" style="width: 500px">
+                            <f:selectItem itemLabel="Funcionario" itemValue="funcionario"/>
+                            <f:selectItem itemLabel="Usuario" itemValue="usuario"/>
+                            <f:selectItem itemLabel="Perfil" itemValue="perfil"/>
+                            <f:selectItem itemLabel="Cargo" itemValue="cargo"/>
+                            <f:selectItem itemLabel="Grado" itemValue="grado"/>
+                            <f:selectItem itemLabel="Clase" itemValue="clase"/>
+                        </p:selectManyCheckbox>
+                        <p:separator/>
+
+                        <h4>Administrativo</h4>
+                        <p:selectManyCheckbox id="admin" value="#{perfilBean.admin}" layout="grid" 
+                                              columns="3" style="width: 500px">
+                            <f:selectItem itemLabel="Clasificacion" itemValue="clasificacion"/>
+                            <f:selectItem itemLabel="Enfoque" itemValue="enfoque"/>
+                            <f:selectItem itemLabel="Estado" itemValue="estado"/>
+                            <f:selectItem itemLabel="Nombre Proceso" itemValue="nombreProceso"/>
+                            <f:selectItem itemLabel="Tipo Proceso" itemValue="tipoProceso"/>
+                            <f:selectItem itemLabel="Area" itemValue="area"/>
+                            <f:selectItem itemLabel="Ciudad" itemValue="ciudad"/>
+                            <f:selectItem itemLabel="Departamento" itemValue="departamento"/>
+                            <f:selectItem itemLabel="Regional" itemValue="regional"/>
+                            <f:selectItem itemLabel="Seccional" itemValue="seccional"/>
+                            <f:selectItem itemLabel="Sub-Area" itemValue="subarea"/>
+                        </p:selectManyCheckbox>
+                        <p:separator/>
+
+                        <p:commandButton value="Cambiar Modulos" actionListener="#{perfilBean.actualizar()}" icon="ui-icon-check"/>
+
+                    </h:form>
+                </f:view>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

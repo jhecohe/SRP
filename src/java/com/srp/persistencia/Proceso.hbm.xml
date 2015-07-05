@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.srp.persistencia.Proceso" table="proceso" schema="public">
+        <id name="idproceso" type="int" unsaved-value="0">
+            <column name="idproceso" unique="true" sql-type="int"/>
+            <generator class="native" >
+                <param name="sequence">proceso_idproceso_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="estado" class="com.srp.persistencia.Estado" fetch="select" lazy="false">
+            <column name="idestado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subarea" class="com.srp.persistencia.Subarea" fetch="select">
+            <column name="idsubarea" not-null="true" />
+        </many-to-one>
+        <many-to-one name="procesoasociado" class="com.srp.persistencia.Procesoasociado" fetch="select" lazy="false">
+            <column name="idprocesoasociado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="com.srp.persistencia.Funcionario" fetch="select" lazy="false">
+            <column name="idfuncionario" not-null="true" />
+        </many-to-one>
+        <property name="codigoproceso" type="string">
+            <column name="codigoproceso" length="20" not-null="true" />
+        </property>
+        <property name="creado" type="date">
+            <column name="creado" length="13" not-null="true" />
+        </property>
+        <property name="modificado" type="date">
+            <column name="modificado" length="13" />
+        </property>
+        <set name="panoramas" table="panorama" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idproceso" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Panorama" />
+        </set>
+        <set name="trazaprocesos" table="trazaproceso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idproceso" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Trazaproceso" />
+        </set>
+    </class>
+</hibernate-mapping>

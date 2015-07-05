@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.srp.persistencia.Analisisvaloracion" table="analisisvaloracion" schema="public">
+        <id name="idanalisisvaloracion" type="int" unsaved-value="0">
+            <column name="idanalisisvaloracion" unique="true" sql-type="int"/>
+            <generator class="native" >
+                <param name="sequence">analisisvaloracion_idanalisisvaloracion_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="panorama" class="com.srp.persistencia.Panorama" fetch="select" lazy="false">
+            <column name="idpanorama" not-null="true" />
+        </many-to-one>
+        <property name="origen" type="int">
+            <column name="origen" not-null="true" />
+        </property>
+        <property name="probabilidad" type="int">
+            <column name="probabilidad" not-null="true" />
+        </property>
+        <property name="impacto" type="int">
+            <column name="impacto" not-null="true" />
+        </property>
+        <property name="control" type="int">
+            <column name="control" not-null="true" />
+        </property>
+        <property name="color" type="string">
+            <column name="color" not-null="true" />
+        </property>
+        <set name="trazavaloracions" table="trazavaloracion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idanalisisvaloracion" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Trazavaloracion" />
+        </set>
+    </class>
+</hibernate-mapping>

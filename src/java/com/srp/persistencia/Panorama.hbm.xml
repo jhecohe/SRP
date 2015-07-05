@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.srp.persistencia.Panorama" table="panorama" schema="public">
+        <id name="idpanorama" type="int" unsaved-value="0">
+            <column name="idpanorama" unique="true" sql-type="int"/>
+            <generator class="native" >
+                <param name="sequence">panorama_idpanorama_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="riesgoByIdefecto" class="com.srp.persistencia.Riesgo" fetch="select" lazy="false">
+            <column name="idefecto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proceso" class="com.srp.persistencia.Proceso" fetch="select" lazy="false">
+            <column name="idproceso" not-null="true" />
+        </many-to-one>
+        <many-to-one name="riesgoByIdcausa" class="com.srp.persistencia.Riesgo" fetch="select" lazy="false">
+            <column name="idcausa" not-null="true" />
+        </many-to-one>
+        <set name="analisisvaloracions" table="analisisvaloracion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpanorama" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Analisisvaloracion" />
+        </set>
+        <set name="planmejoramientos" table="planmejoramiento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpanorama" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Planmejoramiento" />
+        </set>
+        <set name="trazapanoramas" table="trazapanorama" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpanorama" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Trazapanorama" />
+        </set>
+    </class>
+</hibernate-mapping>

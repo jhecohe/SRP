@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/medilegal</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">medlegal</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="com/srp/persistencia/Usuario.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Tiporiesgo.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Estadomejora.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Clase.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Tipoproceso.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Riesgo.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Trazariesgo.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Clasificacion.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Perfil.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Area.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Subarea.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Nombreproceso.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Trazaproceso.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Trazapanorama.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Estado.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Enfoque.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Cargo.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Regional.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Analisisvaloracion.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Proceso.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Ciudad.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Funcionario.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Panorama.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Procesoasociado.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Seccional.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Planmejoramiento.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Grado.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Departamento.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Trazavaloracion.hbm.xml"/>
+    <mapping resource="com/srp/persistencia/Trazamejora.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:flow="http://www.springframework.org/schema/webflow-config"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jms="http://www.springframework.org/schema/jms"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:osgi="http://www.springframework.org/schema/osgi"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+          http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
+          http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+          http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.2.xsd
+          http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.2.xsd
+          http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-1.2.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+">
+    
+    <context:annotation-config/>
+    <context:component-scan base-package="com.srp"/>
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/medilegal"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="postgres"/>
+    </bean> 
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" >
+            <ref bean="dataSource"/>
+        </property>
+        
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                <prop key="hibernate.show.sql">true</prop>                
+            </props>
+        </property>
+        
+        <property name="mappingResources">
+            <list>
+                <value>com/srp/persistencia/Usuario.hbm.xml</value>
+                <value>com/srp/persistencia/Tiporiesgo.hbm.xml</value>
+                <value>com/srp/persistencia/Estadomejora.hbm.xml</value>
+                <value>com/srp/persistencia/Clase.hbm.xml</value>
+                <value>com/srp/persistencia/Tipoproceso.hbm.xml</value>
+                <value>com/srp/persistencia/Riesgo.hbm.xml</value>
+                <value>com/srp/persistencia/Trazariesgo.hbm.xml</value>
+                <value>com/srp/persistencia/Clasificacion.hbm.xml</value>
+                <value>com/srp/persistencia/Perfil.hbm.xml</value>
+                <value>com/srp/persistencia/Area.hbm.xml</value>
+                <value>com/srp/persistencia/Subarea.hbm.xml</value>
+                <value>com/srp/persistencia/Nombreproceso.hbm.xml</value>
+                <value>com/srp/persistencia/Trazaproceso.hbm.xml</value>
+                <value>com/srp/persistencia/Trazapanorama.hbm.xml</value>
+                <value>com/srp/persistencia/Estado.hbm.xml</value>
+                <value>com/srp/persistencia/Enfoque.hbm.xml</value>
+                <value>com/srp/persistencia/Cargo.hbm.xml</value>
+                <value>com/srp/persistencia/Regional.hbm.xml</value>
+                <value>com/srp/persistencia/Analisisvaloracion.hbm.xml</value>
+                <value>com/srp/persistencia/Proceso.hbm.xml</value>
+                <value>com/srp/persistencia/Ciudad.hbm.xml</value>
+                <value>com/srp/persistencia/Funcionario.hbm.xml</value>
+                <value>com/srp/persistencia/Panorama.hbm.xml</value>
+                <value>com/srp/persistencia/Procesoasociado.hbm.xml</value>
+                <value>com/srp/persistencia/Seccional.hbm.xml</value>
+                <value>com/srp/persistencia/Planmejoramiento.hbm.xml</value>
+                <value>com/srp/persistencia/Grado.hbm.xml</value>
+                <value>com/srp/persistencia/Departamento.hbm.xml</value>
+                <value>com/srp/persistencia/Trazavaloracion.hbm.xml</value>
+                <value>com/srp/persistencia/Trazamejora.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+    
+    <!--DAO-->
+    <bean id="loginDAO" class="com.srp.dao.LoginImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="riesgoDAO" class="com.srp.dao.RiesgoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="clasificacionDAO" class="com.srp.dao.ClasificacionImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="enfoqueDAO" class="com.srp.dao.EnfoqueImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="tiporiesgoDAO" class="com.srp.dao.TiporiesgoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="estadoDAO" class="com.srp.dao.EstadoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="procesoDAO" class="com.srp.dao.ProcesoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="tipoprocesoDAO" class="com.srp.dao.TipoprocesoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="nombreprocesoDAO" class="com.srp.dao.NombreprocesoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="procesoasociadoDAO" class="com.srp.dao.ProcesoasociadoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="regionalDAO" class="com.srp.dao.RegionalImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="seccionalDAO" class="com.srp.dao.SeccionalImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="areaDAO" class="com.srp.dao.AreaImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="subareaDAO" class="com.srp.dao.SubareaImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="funcionarioDAO" class="com.srp.dao.FuncionarioImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="departamentoDAO" class="com.srp.dao.DepartamentoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="ciudadDAO" class="com.srp.dao.CiudadImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="cargoDAO" class="com.srp.dao.CargoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="gradoDAO" class="com.srp.dao.GradoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="claseDAO" class="com.srp.dao.ClaseImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="panoramaDAO" class="com.srp.dao.PanoramaImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="valoracionDAO" class="com.srp.dao.ValoracionImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="mejoramientoDAO" class="com.srp.dao.MejoramientoImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="usuarioDAO" class="com.srp.dao.UsuarioImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="perfilDAO" class="com.srp.dao.PerfilImpDAO">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <!--BO-->
+    <bean id="loginBO" class="com.srp.bo.LoginImpBO">
+        <property name="loginDAO" ref="loginDAO"></property>
+    </bean>
+    <bean id="riesgoBO" class="com.srp.bo.RiesgoImpBO">
+        <property name="riesgoDAO" ref="riesgoDAO"></property>
+        <property name="clasificacionBO" ref="clasificacionBO"></property>
+        <property name="enfoqueBO" ref="enfoqueBO"></property>
+        <property name="tiporiesgoBO" ref="tiporiesgoBO"></property>
+        <property name="estadoBO" ref="estadoBO"></property>
+    </bean>
+    <bean id="clasificacionBO" class="com.srp.bo.ClasificacionImpBO">
+        <property name="clasificacionDAO" ref="clasificacionDAO"></property>
+    </bean>
+    <bean id="enfoqueBO" class="com.srp.bo.EnfoqueImpBO">
+        <property name="enfoqueDAO" ref="enfoqueDAO"></property>
+    </bean>
+    <bean id="tiporiesgoBO" class="com.srp.bo.TiporiesgoImpBO">
+        <property name="tiporiesgoDAO" ref="tiporiesgoDAO"></property>
+    </bean>
+    <bean id="estadoBO" class="com.srp.bo.EstadoImpBO">
+        <property name="estadoDAO" ref="estadoDAO"></property>
+    </bean>
+    <bean id="procesoBO" class="com.srp.bo.ProcesoImpBO">
+        <property name="procesoDAO" ref="procesoDAO"></property>
+        <property name="tipoprocesoBO" ref="tipoprocesoBO"></property>
+        <property name="nombreprocesoBO" ref="nombreprocesoBO"></property>
+        <property name="procesoasociadoBO" ref="procesoasociadoBO"></property>
+        <property name="regionalBO" ref="regionalBO"></property>
+        <property name="seccionalBO" ref="seccionalBO"></property>
+        <property name="areaBO" ref="areaBO"></property>
+        <property name="subareaBO" ref="subareaBO"></property>
+        <property name="funcionarioBO" ref="funcionarioBO"></property>
+        <property name="estadoBO" ref="estadoBO"></property>
+    </bean>
+    <bean id="tipoprocesoBO" class="com.srp.bo.TipoprocesoImpBO">
+        <property name="tipoprocesoDAO" ref="tipoprocesoDAO"></property>
+    </bean>
+    <bean id="nombreprocesoBO" class="com.srp.bo.NombreprocesoImpBO">
+        <property name="nombreprocesoDAO" ref="nombreprocesoDAO"></property>
+    </bean>
+    <bean id="procesoasociadoBO" class="com.srp.bo.ProcesoasociadoImpBO">
+        <property name="procesoasociadoDAO" ref="procesoasociadoDAO"></property>
+    </bean>
+    <bean id="regionalBO" class="com.srp.bo.RegionalImpBO">
+        <property name="regionalDAO" ref="regionalDAO"></property>
+    </bean>
+    <bean id="seccionalBO" class="com.srp.bo.SeccionalImpBO">
+        <property name="seccionalDAO" ref="seccionalDAO"></property>
+    </bean>
+    <bean id="areaBO" class="com.srp.bo.AreaImpBO">
+        <property name="areaDAO" ref="areaDAO"></property>
+    </bean>
+    <bean id="subareaBO" class="com.srp.bo.SubareaImpBO">
+        <property name="subareaDAO" ref="subareaDAO"></property>
+    </bean>
+    <bean id="funcionarioBO" class="com.srp.bo.FuncionarioImpBO">
+        <property name="funcionarioDAO" ref="funcionarioDAO" ></property>
+        <property name="ciudadBO" ref="ciudadBO" ></property>
+        <property name="cargoBO" ref="cargoBO" ></property>
+        <property name="gradoBO" ref="gradoBO" ></property>
+        <property name="claseBO" ref="claseBO" ></property>
+        <property name="regionalBO" ref="regionalBO"></property>
+        <property name="seccionalBO" ref="seccionalBO"></property>
+        <property name="areaBO" ref="areaBO"></property>
+        <property name="subareaBO" ref="subareaBO"></property>
+    </bean>
+    <bean id="departamentoBO" class="com.srp.bo.DepartamentoImpBO">
+        <property name="departamentoDAO" ref="departamentoDAO" ></property>
+    </bean>
+    <bean id="ciudadBO" class="com.srp.bo.CiudadImpBO">
+        <property name="ciudadDAO" ref="ciudadDAO" ></property>
+    </bean>
+    <bean id="cargoBO" class="com.srp.bo.CargoImpBO">
+        <property name="cargoDAO" ref="cargoDAO" ></property>
+    </bean>
+    <bean id="gradoBO" class="com.srp.bo.GradoImpBO">
+        <property name="gradoDAO" ref="gradoDAO" ></property>
+    </bean>
+    <bean id="claseBO" class="com.srp.bo.ClaseImpBO">
+        <property name="claseDAO" ref="claseDAO" ></property>
+    </bean>
+    <bean id="panoramaBO" class="com.srp.bo.PanoramaImpBO">
+        <property name="panoramaDAO" ref="panoramaDAO"></property>
+        <property name="riesgoBO" ref="riesgoBO"></property>
+        <property name="procesoBO" ref="procesoBO"></property>
+    </bean>
+    <bean id="valoracionBO" class="com.srp.bo.ValoracionImpBO">
+        <property name="valoracionDAO" ref="valoracionDAO" ></property>
+        <property name="procesoBO" ref="procesoBO" ></property>
+        <property name="riesgoBO" ref="riesgoBO" ></property>
+        <property name="panoramaBO" ref="panoramaBO" ></property>
+    </bean>
+    <bean id="mejoramientoBO" class="com.srp.bo.MejoramientoImpBO">
+        <property name="mejoramientoDAO" ref="mejoramientoDAO" ></property>
+        <property name="procesoBO" ref="procesoBO" ></property>
+        <property name="panoramaBO" ref="panoramaBO" ></property>
+        <property name="funcionarioBO" ref="funcionarioBO" ></property>
+    </bean>
+    <bean id="usuarioBO" class="com.srp.bo.UsuarioImpBO">
+        <property name="usuarioDAO" ref="usuarioDAO" ></property>
+        <property name="funcionarioBO" ref="funcionarioBO" ></property>
+        <property name="perfilBO" ref="perfilBO" ></property>
+    </bean>
+    <bean id="perfilBO" class="com.srp.bo.PerfilImpBO">
+        <property name="perfilDAO" ref="perfilDAO" ></property>
+    </bean>
+</beans>

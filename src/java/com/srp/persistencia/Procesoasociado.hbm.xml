@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.srp.persistencia.Procesoasociado" table="procesoasociado" schema="public">
+        <id name="idprocesoasociado" type="int" unsaved-value="0">
+            <column name="idprocesoasociado" unique="true" sql-type="int"/>
+            <generator class="native" >
+                <param name="sequence">procesoasociado_procesoasociado_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="nombreproceso" class="com.srp.persistencia.Nombreproceso" fetch="select" lazy="false">
+            <column name="idnombreproceso" not-null="true" />
+        </many-to-one>
+        <property name="descasociado" type="string">
+            <column name="descasociado" length="200" not-null="true" />
+        </property>
+        <set name="procesos" table="proceso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idprocesoasociado" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Proceso" />
+        </set>
+    </class>
+</hibernate-mapping>

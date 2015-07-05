@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.srp.persistencia.Estado" table="estado" schema="public">
+        <id name="idestado" type="int">
+            <column name="idestado" />
+            <generator class="assigned" />
+        </id>
+        <property name="descestado" type="string">
+            <column name="descestado" length="40" not-null="true" />
+        </property>
+        <set name="procesos" table="proceso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idestado" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Proceso" />
+        </set>
+        <set name="perfils" table="perfil" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idestado" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Perfil" />
+        </set>
+        <set name="riesgos" table="riesgo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idestado" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Riesgo" />
+        </set>
+        <set name="funcionarios" table="funcionario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idestado" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Funcionario" />
+        </set>
+    </class>
+</hibernate-mapping>

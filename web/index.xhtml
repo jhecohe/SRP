@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./plantilla.xhtml">
+
+            <ui:define name="top">
+
+            </ui:define>
+
+            <ui:define name="content">
+                <f:view>
+                    <h:form id="login">
+                        <h:outputText value="#{hora.fecha}" style="color: #7cadd3"/>
+                        <p:panel header="Administrcion de riesgos" style="background: none; border: 0">
+                            <h:panelGrid columns="2" style="width: 1000px">
+                                <img alt="triangulo" src="resources/imagenes/triangle.png"/>
+                                <h:panelGrid columns="2">      
+                                    <h:outputText value="Digite su usuario"/>
+                                    <p:inputText id ="usuario" value="#{loginBean.usuario}" required="true">
+                                        <f:validateRequired/>
+                                    </p:inputText>
+                                    <h:outputText value="Digite su clave"/>
+                                    <p:password id ="password" value="#{loginBean.clave}" required="true">
+                                        <f:validateRequired />
+                                    </p:password> 
+                                    <p:commandButton value="Aceptar" action="#{loginBean.validarLogin()}" ajax="false"/>
+                                    <div class="error">
+                                        <p:messages closable="true" showDetail="true"/>
+                                    </div>
+                                </h:panelGrid>                           
+                            </h:panelGrid>
+                        </p:panel>
+                    </h:form>
+                </f:view>
+            </ui:define>
+
+            <ui:define name="bottom">
+                Powered by @Jherson A. Cohecha S.
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

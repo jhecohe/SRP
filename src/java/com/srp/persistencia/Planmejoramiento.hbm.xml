@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.srp.persistencia.Planmejoramiento" table="planmejoramiento" schema="public">
+        <id name="idmejoramiento" type="int" unsaved-value="0">
+            <column name="idmejoramiento" unique="true" sql-type="int"/>
+            <generator class="native" >
+                <param name="sequence">planmejoramiento_idmejoramiento_seq</param>
+            </generator>
+        </id>
+        <many-to-one name="estadomejora" class="com.srp.persistencia.Estadomejora" fetch="select">
+            <column name="idestadomejora" not-null="true" />
+        </many-to-one>
+        <many-to-one name="panorama" class="com.srp.persistencia.Panorama" fetch="select" lazy="false">
+            <column name="idpanorama" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="com.srp.persistencia.Funcionario" fetch="select">
+            <column name="idfuncionario" not-null="true" />
+        </many-to-one>
+        <property name="resultado" type="int">
+            <column name="resultado" not-null="true" />
+        </property>
+        <property name="mejoramiento" type="string">
+            <column name="mejoramiento" length="800" not-null="true" />
+        </property>
+        <property name="fechainicio" type="date">
+            <column name="fechainicio" length="13" not-null="true" />
+        </property>
+        <property name="fecharevision" type="date">
+            <column name="fecharevision" length="13" not-null="true" />
+        </property>
+        <set name="trazamejoras" table="trazamejora" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idmejoramiento" not-null="true" />
+            </key>
+            <one-to-many class="com.srp.persistencia.Trazamejora" />
+        </set>
+    </class>
+</hibernate-mapping> 

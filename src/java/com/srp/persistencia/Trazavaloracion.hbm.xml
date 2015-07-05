@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.srp.persistencia.Trazavaloracion" table="trazavaloracion" schema="public">
+        <id name="idtrazavaloracion" type="int">
+            <column name="idtrazavaloracion" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="analisisvaloracion" class="com.srp.persistencia.Analisisvaloracion" fetch="select">
+            <column name="idanalisisvaloracion" not-null="true" />
+        </many-to-one>
+        <property name="proceso" type="string">
+            <column name="proceso" length="100" not-null="true" />
+        </property>
+        <property name="riesgo" type="string">
+            <column name="riesgo" length="200" not-null="true" />
+        </property>
+        <property name="origin" type="int">
+            <column name="origin" not-null="true" />
+        </property>
+        <property name="probabilidad" type="int">
+            <column name="probabilidad" not-null="true" />
+        </property>
+        <property name="impacto" type="int">
+            <column name="impacto" not-null="true" />
+        </property>
+        <property name="control" type="int">
+            <column name="control" not-null="true" />
+        </property>
+        <property name="usuariooperacion" type="string">
+            <column name="usuariooperacion" length="100" not-null="true" />
+        </property>
+        <property name="fechaoperacion" type="date">
+            <column name="fechaoperacion" length="13" not-null="true" />
+        </property>
+        <property name="tipooperacion" type="string">
+            <column name="tipooperacion" length="20" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
