@@ -35,11 +35,26 @@ public class PerfilImpBO implements Serializable {
         return true;
     }
 
-    public boolean actualizar(String[] modulo) throws IOException {
+    public boolean actualizar(String[] modulo, String descperfil) throws IOException {
 
+        System.out.println("Longitud arreglo modulo" + modulo.length + "Dato -" + modulo[0]);
+        
+        String[] archivos = {"area","cargo","ciudad","clase","clasificacion","departamento","efecto",
+        "enfoque","estado","funcionario","grado","mejoramiento","nombreProceso","panorama","perfil",
+        "proceso","regional","riesgo","riesgoCausa","seccional","subarea","tipoProceso","usuario","valoracion"};
+        
+        for (int i = 0; i < archivos.length; i++) {
+            Path hoja = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/"+descperfil+"/" + archivos[i] + ".xhtml");
+            if(Files.exists(hoja)){
+                Files.delete(hoja);
+                System.out.println("Se borro  "+ archivos[i]);
+            }
+        }
+        
+        
         for (int i = 0; i < modulo.length; i++) {
             Path copiar = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/Admin/" + modulo[i] + ".xhtml");
-            Path pegar = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/pruebas/" + modulo[i] + ".xhtml");
+            Path pegar = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/"+descperfil+"/" + modulo[i] + ".xhtml");
 
             CopyOption[] options = new CopyOption[]{
                 StandardCopyOption.REPLACE_EXISTING,

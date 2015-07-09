@@ -1,12 +1,14 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change± this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.srp.beans;
 
 import com.srp.bo.PerfilImpBO;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,23 +33,17 @@ public class PerfilBean implements Serializable {
         return getPerfilBO().listado();
     }
     
-//    System.arrayCopy(aOrigen,inicioArrayOrigen,aDestino,
-//  inicioArrayDestino,numeroElementosACopiar);
-    
     public boolean actualizar(){
         
-        int tamaño = proceso.length + funcionario.length + admin.length+1;
+        int tamaño = proceso.length + funcionario.length + admin.length;
         String[] modulo = new String[tamaño];
         System.arraycopy(proceso, 0, modulo, 0, proceso.length);
         System.arraycopy(funcionario, 0, modulo, proceso.length, funcionario.length);
-        int j = 0;
-        for (int i = proceso.length+funcionario.length; i < modulo.length; i++) {
-            modulo[i] = admin[j];
-            j++;
-        }
-        
+        int puntero = proceso.length + funcionario.length;
+        System.arraycopy(admin, 0, modulo, puntero, admin.length);
+                
         try {
-             getPerfilBO().actualizar(modulo);
+             getPerfilBO().actualizar(modulo, descperfil);
         } catch (Exception e) {
         }
         return true;

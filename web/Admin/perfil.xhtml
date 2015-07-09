@@ -52,10 +52,10 @@
 
                         <h4>Selccione el Perfil a modificar</h4>
 
-                        <p:selectOneMenu value="#{perfilBean.idperfil}" style="width: 180px" required="true" >
+                        <p:selectOneMenu value="#{perfilBean.descperfil}" style="width: 180px" required="true" >
                             <f:selectItem itemLabel="Seleccione" itemValue=""/>
                             <f:selectItems value="#{perfilBean.listado()}" var="perfil"
-                                           itemLabel="#{perfil.descperfil}" itemValue="#{perfil.idperfil}" />
+                                           itemLabel="#{perfil.descperfil}" itemValue="#{perfil.descperfil}" />
                         </p:selectOneMenu><br/>
 
                         <h4>Proceso</h4>
