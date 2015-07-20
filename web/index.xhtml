@@ -30,7 +30,7 @@
                                     <p:password id ="password" value="#{loginBean.clave}" required="true">
                                         <f:validateRequired />
                                     </p:password> 
-                                    <p:commandButton value="Aceptar" action="#{loginBean.validarLogin()}" ajax="false"/>
+                                    <p:commandButton value="Aceptar" action="#{loginBean.validarLogin(e)}" ajax="false"/>
                                     <div class="error">
                                         <p:messages closable="true" showDetail="true"/>
                                     </div>

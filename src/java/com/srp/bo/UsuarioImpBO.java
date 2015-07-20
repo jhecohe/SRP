@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.srp.bo;
 
 import com.srp.beans.UsuarioBean;
@@ -18,7 +17,12 @@ import java.util.List;
  * @author jhecohe
  */
 public class UsuarioImpBO implements UsuarioIntBO {
-    
+
+    private int idusuario;
+    private int idfuncionario;
+    private String nombreusuario;
+    private String clave;
+    private int idperfil;
     private UsuarioImpDAO usuarioDAO;
     private FuncionarioImpBO funcionarioBO;
     private PerfilImpBO perfilBO;
@@ -29,13 +33,13 @@ public class UsuarioImpBO implements UsuarioIntBO {
         Funcionario funcionario = new Funcionario();
         funcionario.setIdfuncionario(obj.getFuncionario());
         Perfil perfil = new Perfil();
-        perfil.setIdperfil(obj.getPerfil());
-        
+        perfil.setIdperfil(obj.getIdperfil());
+
         usuario.setClave(obj.getClave());
         usuario.setFuncionario(funcionario);
         usuario.setNombreusuario(obj.getNombreusuario());
         usuario.setPerfil(perfil);
-        
+
         getUsuarioDAO().agregar(usuario);
         return true;
     }
@@ -55,11 +59,11 @@ public class UsuarioImpBO implements UsuarioIntBO {
     public boolean eliminar(Usuario obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public List<Funcionario> funcionarioListado() {
         return getFuncionarioBO().listado();
     }
-    
+
     public List perfilListado() {
         return getPerfilBO().listado();
     }
@@ -76,7 +80,7 @@ public class UsuarioImpBO implements UsuarioIntBO {
      */
     public void setUsuarioDAO(UsuarioImpDAO usuarioDAO) {
         this.usuarioDAO = usuarioDAO;
-    }    
+    }
 
     /**
      * @return the funcionarioBO
@@ -104,5 +108,75 @@ public class UsuarioImpBO implements UsuarioIntBO {
      */
     public void setPerfilBO(PerfilImpBO perfilBO) {
         this.perfilBO = perfilBO;
+    }
+
+    /**
+     * @return the idusuario
+     */
+    public int getIdusuario() {
+        return idusuario;
+    }
+
+    /**
+     * @param idusuario the idusuario to set
+     */
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
+    }
+
+    /**
+     * @return the idfuncionario
+     */
+    public int getIdfuncionario() {
+        return idfuncionario;
+    }
+
+    /**
+     * @param idfuncionario the idfuncionario to set
+     */
+    public void setIdfuncionario(int idfuncionario) {
+        this.idfuncionario = idfuncionario;
+    }
+
+    /**
+     * @return the nombreusuario
+     */
+    public String getNombreusuario() {
+        return nombreusuario;
+    }
+
+    /**
+     * @param nombreusuario the nombreusuario to set
+     */
+    public void setNombreusuario(String nombreusuario) {
+        this.nombreusuario = nombreusuario;
+    }
+
+    /**
+     * @return the clave
+     */
+    public String getClave() {
+        return clave;
+    }
+
+    /**
+     * @param clave the clave to set
+     */
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    /**
+     * @return the idperfil
+     */
+    public int getIdperfil() {
+        return idperfil;
+    }
+
+    /**
+     * @param idperfil the idperfil to set
+     */
+    public void setIdperfil(int idperfil) {
+        this.idperfil = idperfil;
     }
 }

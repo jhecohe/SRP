@@ -18,13 +18,22 @@ import org.primefaces.event.RowEditEvent;
 public class UsuarioBean implements Serializable {
 
     private int idusuario;
-    private int perfil;
+    private int idperfil;
+    private String perfil;
     private int funcionario;
     private String nombreusuario;
     private String clave;
     private String reclave;
     
     private UsuarioImpBO usuarioBO;
+    
+    public UsuarioBean(){    
+    }
+    
+    public UsuarioBean(String nombreusuario, String perfil){
+        this.nombreusuario = nombreusuario;
+        this.perfil = perfil;
+    }
     
     public void agregar(){
         usuarioBO.agregar(this);
@@ -34,7 +43,7 @@ public class UsuarioBean implements Serializable {
         System.out.println("Estamos en actualizar usuario");
         Usuario usuario;
         usuario = (Usuario)obj.getObject();
-        getUsuarioBO().actualizar(usuario, perfil);
+        getUsuarioBO().actualizar(usuario, getIdperfil());
     }
     
     public List listado(){
@@ -62,21 +71,7 @@ public class UsuarioBean implements Serializable {
     public void setIdusuario(int idusuario) {
         this.idusuario = idusuario;
     }
-
-    /**
-     * @return the perfil
-     */
-    public int getPerfil() {
-        return perfil;
-    }
-
-    /**
-     * @param perfil the perfil to set
-     */
-    public void setPerfil(int perfil) {
-        this.perfil = perfil;
-    }
-
+    
     /**
      * @return the funcionario
      */
@@ -145,6 +140,34 @@ public class UsuarioBean implements Serializable {
      */
     public void setReclave(String reclave) {
         this.reclave = reclave;
+    }
+
+    /**
+     * @return the idperfil
+     */
+    public int getIdperfil() {
+        return idperfil;
+    }
+
+    /**
+     * @param idperfil the idperfil to set
+     */
+    public void setIdperfil(int idperfil) {
+        this.idperfil = idperfil;
+    }
+
+    /**
+     * @return the perfil
+     */
+    public String getPerfil() {
+        return perfil;
+    }
+
+    /**
+     * @param perfil the perfil to set
+     */
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
 
 }

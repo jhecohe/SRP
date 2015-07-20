@@ -20,15 +20,14 @@ public class LoginImpBO implements LoginIntBO {
 
     @Override
     public void validaLogin(LoginBean obj) {
-        System.out.println("Entramos en LoginImpBO");
         Usuario usuario = new Usuario();
         usuario.setNombreusuario(obj.getUsuario());
         usuario.setClave(obj.getClave());
         usuario = getLoginDAO().validaLogin(usuario);
-        System.out.println("Despues de validar el loginimpDAO");
         if (usuario != null) {
             obj.setEstado(true);
-            obj.setMensaje("Usaurio Encontrado");
+            obj.setPerfil(usuario.getPerfil().getDescperfil());
+            obj.setIdperfil(usuario.getPerfil().getIdperfil());
         } else {
             obj.setEstado(false);
             obj.setMensaje("Usaurio no Encontrado");

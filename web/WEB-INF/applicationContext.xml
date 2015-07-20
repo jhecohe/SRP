@@ -162,7 +162,7 @@
     
     <!--BO-->
     <bean id="loginBO" class="com.srp.bo.LoginImpBO">
-        <property name="loginDAO" ref="loginDAO"></property>
+        <property name="loginDAO" ref="loginDAO"></property>        
     </bean>
     <bean id="riesgoBO" class="com.srp.bo.RiesgoImpBO">
         <property name="riesgoDAO" ref="riesgoDAO"></property>
