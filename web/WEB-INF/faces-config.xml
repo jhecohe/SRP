@@ -199,4 +199,10 @@
             <value>#{perfilBO}</value>
         </managed-property>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>visualOperador</managed-bean-name>
+        <managed-bean-class>com.srp.beans.VisualOperador</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>-<managed-property>
+        </managed-property>
+    </managed-bean>
 </faces-config>

@@ -16,7 +16,7 @@
                     <h1><h:outputText value="Procesos" /></h1>
 
                     <h:form>  
-                        <p:overlayPanel id="datos" for="agregar" hideEffect="fade" style="background-color: scrollbar">
+                        <p:overlayPanel id="datos" for="agregar" hideEffect="fade" style="background-color: scrollbar" rendered="#{procesoBean.visual}">
                             <p:panelGrid columns="2" style="width: 600px">
                                 <h:outputLabel value="Tipo de Proceso" />
                                 <p:selectOneMenu id="tipo" value="#{procesoBean.tipoproceso}" 

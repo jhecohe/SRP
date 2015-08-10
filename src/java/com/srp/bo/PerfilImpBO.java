@@ -6,6 +6,7 @@
 package com.srp.bo;
 
 import com.srp.beans.PerfilBean;
+import com.srp.beans.RiesgoBean;
 import com.srp.dao.PerfilImpDAO;
 import com.srp.persistencia.Perfil;
 import java.io.IOException;
@@ -59,6 +60,8 @@ public class PerfilImpBO implements Serializable {
             };
             Files.copy(copiar, pegar, options);
             System.out.println("Longitud arreglo modulo" + modulo.length + " Variable i" + i );
+            
+            //Cambia el valor de cada una de las vistas
         }
         System.out.println("Termino");
         return true;

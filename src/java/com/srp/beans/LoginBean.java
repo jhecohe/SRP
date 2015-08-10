@@ -8,7 +8,6 @@ import com.srp.bo.LoginImpBO;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -31,7 +30,7 @@ public class LoginBean implements Serializable {
 
     public String validarLogin(ActionEvent e) throws IOException {
         getLoginBO().validaLogin(this);
-        String pagina = "";
+        String pagina = ""; 
 
         FacesContext context = FacesContext.getCurrentInstance();
         ExternalContext extContext = context.getExternalContext();
@@ -43,13 +42,17 @@ public class LoginBean implements Serializable {
                     pagina = extContext.encodeActionURL(
                             context.getApplication().getViewHandler().getActionURL(context, "/Admin/menuAdmin.jspx"));
                     extContext.getSessionMap().put(USER_KEY, new UsuarioBean(this.usuario, this.perfil));
+                    RiesgoBean.visual = true;
                     extContext.redirect(pagina);
                     break;
 
                 case "operador":
+                    VisualOperador operador = new VisualOperador();
                     pagina = extContext.encodeActionURL(
-                            context.getApplication().getViewHandler().getActionURL(context, "/operador/menuOperador.jspx"));
+                            context.getApplication().getViewHandler().getActionURL(context, "/operador/menuAdmin.jspx"));
                     extContext.getSessionMap().put(USER_KEY, new UsuarioBean(this.usuario, this.perfil));
+//                    RiesgoBean.visual = operador.isVisualriesgo();
+                    RiesgoBean.visual = false;
                     extContext.redirect(pagina);
                     break;
 //

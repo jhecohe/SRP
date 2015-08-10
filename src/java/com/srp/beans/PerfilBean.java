@@ -7,8 +7,6 @@ package com.srp.beans;
 
 import com.srp.bo.PerfilImpBO;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -35,6 +33,9 @@ public class PerfilBean implements Serializable {
     
     public boolean actualizar(){
         
+        //Se envian el vector y el perfil a la clase visualizar 
+        visualizar();
+        
         int tamaño = proceso.length + funcionario.length + admin.length;
         String[] modulo = new String[tamaño];
         System.arraycopy(proceso, 0, modulo, 0, proceso.length);
@@ -47,6 +48,38 @@ public class PerfilBean implements Serializable {
         } catch (Exception e) {
         }
         return true;
+    }
+    
+    
+    private void visualizar (){
+
+        switch(descperfil){
+            case "administrador":
+                filtroOperador();
+            case "operador":
+                filtroOperador();
+            case "dueño de proceso":
+                filtroOperador();
+            case "ejecutor de proceso":
+                filtroOperador();
+            case "gestor de riesgo":
+                filtroOperador();
+            case "auditor":
+                filtroOperador();
+        }
+    }
+    
+    private String filtroOperador (){
+        VisualOperador operador = new VisualOperador();
+        for (int i = 0; i < proceso.length; i++) {
+            switch (proceso[i]){
+                case "riesgo":                   
+                    operador.setVisualriesgo(Boolean.getBoolean(proceso[++i]));
+                case "proceso":
+                    operador.setVisualproceso(Boolean.getBoolean(proceso[++i]));
+            } 
+        }
+        return "";
     }
        
     /**

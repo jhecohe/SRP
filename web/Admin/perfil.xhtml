@@ -60,8 +60,9 @@
 
                         <h4>Proceso</h4>
                         <p:selectManyCheckbox id="proceso" value="#{perfilBean.proceso}" layout="grid" 
-                                              columns="3" style="width: 500px">
+                                              columns="2" style="width: 500px">
                             <f:selectItem itemLabel="Riesgo" itemValue="riesgo"/>
+                            <f:selectItem itemLabel="No hacer modificaciones" itemValue="true"/>
                             <f:selectItem itemLabel="Proceso" itemValue="proceso"/>
                             <f:selectItem itemLabel="Panorama de Riesgos" itemValue="panorama"/>
                             <f:selectItem itemLabel="Valoracion" itemValue="valoracion"/>

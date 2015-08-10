@@ -6,9 +6,11 @@
 
 package com.srp.beans;
 
+import static com.srp.beans.LoginBean.USER_KEY;
 import com.srp.bo.RiesgoImpBO;
 import com.srp.persistencia.Riesgo;
 import java.util.List;
+import javax.faces.context.FacesContext;
 import org.primefaces.event.RowEditEvent;
 
 /**
@@ -26,9 +28,11 @@ public class RiesgoBean {
      private String descriesgo;
      private Integer entrada;
      private RiesgoImpBO riesgoBO;
+     public static boolean visual;
      
      public RiesgoBean(){
-         
+         String usuario = ((UsuarioBean)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(USER_KEY)).toString();
+         System.out.println("Perfil---" + usuario);
      }
      
      public void agregar (){
@@ -196,4 +200,17 @@ public class RiesgoBean {
         this.riesgoBO = riesgoBO;
     }
 
+    /**
+     * @return the visual
+     */
+    public boolean isVisual() {
+        return visual;
+    }
+
+    /**
+     * @param visual the visual to set
+     */
+    public void setVisual(boolean visual) {
+        this.visual = visual;
+    }
 }

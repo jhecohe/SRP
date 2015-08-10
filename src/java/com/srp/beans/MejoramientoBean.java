@@ -31,6 +31,7 @@ public class MejoramientoBean implements Serializable {
     private int riesgo;
     private Date actual = new Date();
     private MejoramientoImpBO mejoramientoBO;
+    public static boolean vusual;
     
     public void agregar(){
         System.out.println("panorama  " + panorama);

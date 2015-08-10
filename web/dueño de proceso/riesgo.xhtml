@@ -15,7 +15,7 @@
                     <h1><h:outputText value="Agregar Riesgo" /></h1>
                     <h:form id="formulario"> 
                         <p:menubar style="height: 26px; padding-right: 1%">
-                            <p:menuitem id="agregar" value="Agregar Riesgo" immediate="true" icon="ui-icon-gear"/> 
+                            <p:menuitem id="agregar" value="Agregar Riesgo" immediate="true" icon="ui-icon-gear" rendered="#{riesgoBean.visual}"/> 
                             <p:menuitem value="Actualizar" update="riesgoList" icon="ui-icon-arrowrefresh-1-w" ajax="false"/> 
                         </p:menubar>
                         <p:overlayPanel id="datos" for="agregar" hideEffect="fade" style="background-color: scrollbar">

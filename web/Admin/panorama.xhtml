@@ -16,7 +16,7 @@
 
                     <h:form> 
                         <p:menubar style="height: 26px; padding-right: 1%">
-                            <p:menuitem id="agregar" value="Agregar Panorama de Riesgo" immediate="true" icon="ui-icon-gear"/>    
+                            <p:menuitem id="agregar" value="Agregar Panorama de Riesgo" immediate="true" icon="ui-icon-gear" rendered="#{panoramaBean.vusual}"/>    
                             <p:menuitem value="Borrar Panorama de Riesgo" action="#{panoramaBean.eliminarPanorama()}" 
                                         update="panorama" ajax="false" icon="ui-icon-close" immediate="true" />
                             <p:menuitem value="Actualizar" update="panorama, informacion" icon="ui-icon-arrowrefresh-1-w" ajax="false"/> 

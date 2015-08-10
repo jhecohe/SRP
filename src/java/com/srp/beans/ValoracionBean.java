@@ -30,6 +30,7 @@ public class ValoracionBean implements Serializable {
     private int calificacion1;
     private int calificacion2;
     private String valoracion;
+    public static boolean vusual;
     
     public void agregar(){
         System.out.println( "Panorama" + panorama+"-origen "+ origen +"-probabilidad "+ probabilidad
