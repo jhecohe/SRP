@@ -12,25 +12,11 @@ package com.srp.beans;
  */
 public class VisualOperador {
     
-    private boolean visualriesgo;
+    public static boolean visualriesgo;
     private boolean visualproceso;
     private boolean visualpanorama;
     private boolean visualvaloracion;
     private boolean visualmejoramiento;
-
-    /**
-     * @return the visualriesgo
-     */
-    public boolean isVisualriesgo() {
-        return visualriesgo;
-    }
-
-    /**
-     * @param visualriesgo the visualriesgo to set
-     */
-    public void setVisualriesgo(boolean visualriesgo) {
-        this.visualriesgo = visualriesgo;
-    }
 
     /**
      * @return the visualproceso

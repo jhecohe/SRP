@@ -56,27 +56,48 @@ public class PerfilBean implements Serializable {
         switch(descperfil){
             case "administrador":
                 filtroOperador();
+                break;
             case "operador":
                 filtroOperador();
+                break;
             case "dueño de proceso":
                 filtroOperador();
+                break;
             case "ejecutor de proceso":
                 filtroOperador();
+                break;
             case "gestor de riesgo":
                 filtroOperador();
+                break;
             case "auditor":
                 filtroOperador();
+                break;
         }
     }
     
     private String filtroOperador (){
-        VisualOperador operador = new VisualOperador();
+        System.out.println("Metodo filtro operador");
         for (int i = 0; i < proceso.length; i++) {
+            System.out.println("Ciclo  "+ proceso[i]);
             switch (proceso[i]){
                 case "riesgo":                   
-                    operador.setVisualriesgo(Boolean.getBoolean(proceso[++i]));
+                    VisualOperador.visualriesgo = Boolean.parseBoolean(proceso[++i]);
+//                    System.out.println("case" + Boolean.parseBoolean(proceso[++i]));
+//                    VisualOperador.visualriesgo = false;
+                    System.out.println("case riesgo" + VisualOperador.visualriesgo);
+                    break;
                 case "proceso":
-                    operador.setVisualproceso(Boolean.getBoolean(proceso[++i]));
+//                    operador.setVisualproceso(Boolean.getBoolean(proceso[++i]));
+                    break;
+                case "panorama":
+//                    operador.setVisualpanorama(Boolean.getBoolean(proceso[++i]));
+                    break;
+                case "valoracion":
+//                    operador.setVisualvaloracion(Boolean.getBoolean(proceso[++i]));
+                    break;
+                case "mejoramiento":
+//                    operador.setVisualmejoramiento(Boolean.getBoolean(proceso[++i]));
+                    break;
             } 
         }
         return "";

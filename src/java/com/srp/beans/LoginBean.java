@@ -47,12 +47,12 @@ public class LoginBean implements Serializable {
                     break;
 
                 case "operador":
-                    VisualOperador operador = new VisualOperador();
                     pagina = extContext.encodeActionURL(
                             context.getApplication().getViewHandler().getActionURL(context, "/operador/menuAdmin.jspx"));
                     extContext.getSessionMap().put(USER_KEY, new UsuarioBean(this.usuario, this.perfil));
 //                    RiesgoBean.visual = operador.isVisualriesgo();
-                    RiesgoBean.visual = false;
+                    RiesgoBean.visual = VisualOperador.visualriesgo;
+//                    ProcesoBean.visual = operador.isVisualproceso();
                     extContext.redirect(pagina);
                     break;
 //
