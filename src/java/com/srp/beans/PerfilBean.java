@@ -22,6 +22,16 @@ public class PerfilBean implements Serializable {
     private String[] funcionario;
     private String[] admin;
     private PerfilImpBO perfilBO;
+    private boolean riesgoAdicionar;
+    private boolean riesgoModificar;
+    private boolean procesoAdicionar;
+    private boolean procesoModificar;
+    private boolean panormaAdicionar;
+    private boolean panormaModificar;
+    private boolean valoracionAdicionar;
+    private boolean valoracionModificar;
+    private boolean mejoramientoAdicionar;
+    private boolean mejoramientoModificar;
     
     public void agregar(){
         getPerfilBO().agregar(this);
@@ -58,7 +68,7 @@ public class PerfilBean implements Serializable {
                 filtroOperador();
                 break;
             case "operador":
-                filtroOperador();
+                VisualOperador.visualriesgo = isRiesgoAdicionar();
                 break;
             case "dueño de proceso":
                 filtroOperador();
@@ -76,30 +86,30 @@ public class PerfilBean implements Serializable {
     }
     
     private String filtroOperador (){
-        System.out.println("Metodo filtro operador");
-        for (int i = 0; i < proceso.length; i++) {
-            System.out.println("Ciclo  "+ proceso[i]);
-            switch (proceso[i]){
-                case "riesgo":                   
-                    VisualOperador.visualriesgo = Boolean.parseBoolean(proceso[++i]);
-//                    System.out.println("case" + Boolean.parseBoolean(proceso[++i]));
-//                    VisualOperador.visualriesgo = false;
-                    System.out.println("case riesgo" + VisualOperador.visualriesgo);
-                    break;
-                case "proceso":
-//                    operador.setVisualproceso(Boolean.getBoolean(proceso[++i]));
-                    break;
-                case "panorama":
-//                    operador.setVisualpanorama(Boolean.getBoolean(proceso[++i]));
-                    break;
-                case "valoracion":
-//                    operador.setVisualvaloracion(Boolean.getBoolean(proceso[++i]));
-                    break;
-                case "mejoramiento":
-//                    operador.setVisualmejoramiento(Boolean.getBoolean(proceso[++i]));
-                    break;
-            } 
-        }
+//        System.out.println("Metodo filtro operador");
+//        for (int i = 0; i < proceso.length; i++) {
+//            System.out.println("Ciclo  "+ proceso[i]);
+//            switch (proceso[i]){
+//                case "riesgo":                   
+//                    VisualOperador.visualriesgo = Boolean.parseBoolean(proceso[++i]);
+////                    System.out.println("case" + Boolean.parseBoolean(proceso[++i]));
+////                    VisualOperador.visualriesgo = false;
+//                    System.out.println("case riesgo" + VisualOperador.visualriesgo);
+//                    break;
+//                case "proceso":
+////                    operador.setVisualproceso(Boolean.getBoolean(proceso[++i]));
+//                    break;
+//                case "panorama":
+////                    operador.setVisualpanorama(Boolean.getBoolean(proceso[++i]));
+//                    break;
+//                case "valoracion":
+////                    operador.setVisualvaloracion(Boolean.getBoolean(proceso[++i]));
+//                    break;
+//                case "mejoramiento":
+////                    operador.setVisualmejoramiento(Boolean.getBoolean(proceso[++i]));
+//                    break;
+//            } 
+//        }
         return "";
     }
        
@@ -199,5 +209,145 @@ public class PerfilBean implements Serializable {
      */
     public void setAdmin(String[] admin) {
         this.admin = admin;
+    }
+
+    /**
+     * @return the riesgoAdicionar
+     */
+    public boolean isRiesgoAdicionar() {
+        return riesgoAdicionar;
+    }
+
+    /**
+     * @param riesgoAdicionar the riesgoAdicionar to set
+     */
+    public void setRiesgoAdicionar(boolean riesgoAdicionar) {
+        this.riesgoAdicionar = riesgoAdicionar;
+    }
+
+    /**
+     * @return the riesgoModificar
+     */
+    public boolean isRiesgoModificar() {
+        return riesgoModificar;
+    }
+
+    /**
+     * @param riesgoModificar the riesgoModificar to set
+     */
+    public void setRiesgoModificar(boolean riesgoModificar) {
+        this.riesgoModificar = riesgoModificar;
+    }
+
+    /**
+     * @return the procesoAdicionar
+     */
+    public boolean isProcesoAdicionar() {
+        return procesoAdicionar;
+    }
+
+    /**
+     * @param procesoAdicionar the procesoAdicionar to set
+     */
+    public void setProcesoAdicionar(boolean procesoAdicionar) {
+        this.procesoAdicionar = procesoAdicionar;
+    }
+
+    /**
+     * @return the procesoModificar
+     */
+    public boolean isProcesoModificar() {
+        return procesoModificar;
+    }
+
+    /**
+     * @param procesoModificar the procesoModificar to set
+     */
+    public void setProcesoModificar(boolean procesoModificar) {
+        this.procesoModificar = procesoModificar;
+    }
+
+    /**
+     * @return the panormaAdicionar
+     */
+    public boolean isPanormaAdicionar() {
+        return panormaAdicionar;
+    }
+
+    /**
+     * @param panormaAdicionar the panormaAdicionar to set
+     */
+    public void setPanormaAdicionar(boolean panormaAdicionar) {
+        this.panormaAdicionar = panormaAdicionar;
+    }
+
+    /**
+     * @return the panormaModificar
+     */
+    public boolean isPanormaModificar() {
+        return panormaModificar;
+    }
+
+    /**
+     * @param panormaModificar the panormaModificar to set
+     */
+    public void setPanormaModificar(boolean panormaModificar) {
+        this.panormaModificar = panormaModificar;
+    }
+
+    /**
+     * @return the valoracionAdicionar
+     */
+    public boolean isValoracionAdicionar() {
+        return valoracionAdicionar;
+    }
+
+    /**
+     * @param valoracionAdicionar the valoracionAdicionar to set
+     */
+    public void setValoracionAdicionar(boolean valoracionAdicionar) {
+        this.valoracionAdicionar = valoracionAdicionar;
+    }
+
+    /**
+     * @return the valoracionModificar
+     */
+    public boolean isValoracionModificar() {
+        return valoracionModificar;
+    }
+
+    /**
+     * @param valoracionModificar the valoracionModificar to set
+     */
+    public void setValoracionModificar(boolean valoracionModificar) {
+        this.valoracionModificar = valoracionModificar;
+    }
+
+    /**
+     * @return the mejoramientoAdicionar
+     */
+    public boolean isMejoramientoAdicionar() {
+        return mejoramientoAdicionar;
+    }
+
+    /**
+     * @param mejoramientoAdicionar the mejoramientoAdicionar to set
+     */
+    public void setMejoramientoAdicionar(boolean mejoramientoAdicionar) {
+        this.mejoramientoAdicionar = mejoramientoAdicionar;
+    }
+
+    /**
+     * @return the mejoramientoModificar
+     */
+    public boolean isMejoramientoModificar() {
+        return mejoramientoModificar;
+    }
+
+    /**
+     * @param mejoramientoModificar the mejoramientoModificar to set
+     */
+    public void setMejoramientoModificar(boolean mejoramientoModificar) {
+        this.mejoramientoModificar = mejoramientoModificar;
     }
 }

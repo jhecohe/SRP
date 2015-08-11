@@ -59,15 +59,32 @@
                         </p:selectOneMenu><br/>
 
                         <h4>Proceso</h4>
-                        <p:selectManyCheckbox id="proceso" value="#{perfilBean.proceso}" layout="grid" 
-                                              columns="2" style="width: 500px">
-                            <f:selectItem itemLabel="Riesgo" itemValue="riesgo"/>
-                            <f:selectItem itemLabel="No hacer modificaciones" itemValue="true"/>
-                            <f:selectItem itemLabel="Proceso" itemValue="proceso"/>
-                            <f:selectItem itemLabel="Panorama de Riesgos" itemValue="panorama"/>
-                            <f:selectItem itemLabel="Valoracion" itemValue="valoracion"/>
-                            <f:selectItem itemLabel="Mejoramiento" itemValue="mejoramiento"/>
-                        </p:selectManyCheckbox>
+                        <p:panelGrid columns="2">
+                            <p:selectManyCheckbox id="proceso" value="#{perfilBean.proceso}" layout="grid" 
+                                                  columns="1" style="width: 260px">
+                                <h:outputText value="Modulos"/>
+                                <f:selectItem itemLabel="Riesgo" itemValue="riesgo"/>
+                                <f:selectItem itemLabel="Proceso" itemValue="proceso"/>
+                                <f:selectItem itemLabel="Panorama de Riesgos" itemValue="panorama"/>
+                                <f:selectItem itemLabel="Valoracion" itemValue="valoracion"/>
+                                <f:selectItem itemLabel="Mejoramiento" itemValue="mejoramiento"/>
+                            </p:selectManyCheckbox>
+                            
+                            <h:panelGrid columns="2" style="width: 160px;">
+                                <h:outputText value="Adicionar"/>
+                                <h:outputText value="Modificar"/>
+                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox/>
+                            </h:panelGrid>
+                        </p:panelGrid>
                         <p:separator/>
 
                         <h4>Funcionarios</h4>

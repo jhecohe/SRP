@@ -42,7 +42,8 @@ public class PerfilImpBO implements Serializable {
         "proceso","regional","riesgo","riesgoCausa","seccional","subarea","tipoProceso","usuario","valoracion"};
         
         for (int i = 0; i < archivos.length; i++) {
-            Path hoja = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/"+descperfil+"/" + archivos[i] + ".xhtml");
+//            Path hoja = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/"+descperfil+"/" + archivos[i] + ".xhtml");
+            Path hoja = Paths.get("web/"+descperfil+"/" + archivos[i] + ".xhtml");
             if(Files.exists(hoja)){
                 Files.delete(hoja);
                 System.out.println("Se borro  "+ archivos[i]);
@@ -51,8 +52,10 @@ public class PerfilImpBO implements Serializable {
         
         
         for (int i = 0; i < modulo.length; i++) {
-            Path copiar = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/Admin/" + modulo[i] + ".xhtml");
-            Path pegar = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/"+descperfil+"/" + modulo[i] + ".xhtml");
+//            Path copiar = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/Admin/" + modulo[i] + ".xhtml");
+//            Path pegar = Paths.get("/home/jhecohe/NetBeansProjects/SRP/web/"+descperfil+"/" + modulo[i] + ".xhtml");
+            Path copiar = Paths.get("web/Admin/" + modulo[i] + ".xhtml");
+            Path pegar = Paths.get("web/"+descperfil+"/" + modulo[i] + ".xhtml");
 
             CopyOption[] options = new CopyOption[]{
                 StandardCopyOption.REPLACE_EXISTING,
