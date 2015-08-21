@@ -4,9 +4,11 @@
 <!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="com.srp.persistencia.Tipoproceso" table="tipoproceso" schema="public">
-        <id name="idtipoproceso" type="int">
-            <column name="idtipoproceso" />
-            <generator class="assigned" />
+        <id name="idtipoproceso" type="int" unsaved-value="0">
+            <column name="idtipoproceso" unique="true" sql-type="int"/>
+            <generator class="native" >
+                <param name="sequence">tipoproceso_idtipoproceso_seq</param>
+            </generator>
         </id>
         <property name="desctipo" type="string">
             <column name="desctipo" length="200" not-null="true" />

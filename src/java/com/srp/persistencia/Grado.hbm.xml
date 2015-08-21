@@ -4,9 +4,11 @@
 <!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="com.srp.persistencia.Grado" table="grado" schema="public">
-        <id name="idgrado" type="int">
-            <column name="idgrado" />
-            <generator class="assigned" />
+        <id name="idgrado" type="int" unsaved-value="0">
+            <column name="idgrado" unique="true" sql-type="int"/>
+            <generator class="native" >
+                <param name="sequence">grado_idgrado_seq</param>
+            </generator>
         </id>
         <property name="descgrado" type="string">
             <column name="descgrado" length="40" not-null="true" />
