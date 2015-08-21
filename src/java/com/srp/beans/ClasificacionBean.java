@@ -6,7 +6,9 @@
 package com.srp.beans;
 
 import com.srp.bo.ClasificacionImpBO;
+import com.srp.persistencia.Clasificacion;
 import java.util.List;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
@@ -22,8 +24,10 @@ public class ClasificacionBean {
         getClasificacionBO().agregar(this);
     }
     
-    public void actualizar (){
-        getClasificacionBO().actualizar(this);
+    public void actualizar (RowEditEvent event){
+        Clasificacion objeto = (Clasificacion) event.getObject();
+        System.out.println("clasificacion" + descclasificacion);
+        getClasificacionBO().actualizar(objeto, descclasificacion);
     }
     
     public List clasificacionListado(){

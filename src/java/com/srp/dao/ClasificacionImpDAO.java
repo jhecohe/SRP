@@ -21,7 +21,7 @@ public class ClasificacionImpDAO extends HibernateDaoSupport {
     }
 
     public boolean actualizar(Clasificacion obj) {
-        getHibernateTemplate().merge(obj);
+        getHibernateTemplate().update(obj);
         return true;
     }
 

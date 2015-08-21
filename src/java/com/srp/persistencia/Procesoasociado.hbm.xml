@@ -7,7 +7,7 @@
         <id name="idprocesoasociado" type="int" unsaved-value="0">
             <column name="idprocesoasociado" unique="true" sql-type="int"/>
             <generator class="native" >
-                <param name="sequence">procesoasociado_procesoasociado_seq</param>
+                <param name="sequence">procesoasociado_idprocesoasociado_seq</param>
             </generator>
         </id>
         <many-to-one name="nombreproceso" class="com.srp.persistencia.Nombreproceso" fetch="select" lazy="false">

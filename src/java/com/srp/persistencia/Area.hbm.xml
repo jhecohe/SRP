@@ -4,9 +4,11 @@
 <!-- Generated 23/05/2015 08:59:36 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="com.srp.persistencia.Area" table="area" schema="public">
-        <id name="idarea" type="int">
-            <column name="idarea" />
-            <generator class="assigned" />
+        <id name="idarea" type="int" unsaved-value="0">
+            <column name="idarea" unique="true" sql-type="int"/>
+            <generator class="native" >
+                <param name="sequence">area_idarea_seq</param>
+            </generator>
         </id>
         <many-to-one name="seccional" class="com.srp.persistencia.Seccional" fetch="select">
             <column name="idseccional" not-null="true" />

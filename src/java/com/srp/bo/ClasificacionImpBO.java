@@ -26,9 +26,10 @@ public class ClasificacionImpBO {
         return true;
     }
 
-    public boolean actualizar(ClasificacionBean obj) {
+    public boolean actualizar(Clasificacion obj, String descripcion) {
+        
         Clasificacion clasificacion = new Clasificacion();
-        clasificacion.setDescclasificacion(obj.getDescclasificacion());
+        clasificacion.setDescclasificacion(descripcion);
         clasificacion.setIdclasificacion(obj.getIdclasificacion());
         getClasificacionDAO().actualizar(clasificacion);
         return true;

@@ -37,7 +37,7 @@
                                 Listado de Clasificaciones
                             </f:facet>  
                             
-                            <p:ajax event="rowEdit" listener="#{clasificacionBean.modificar}" />
+                            <p:ajax event="rowEdit" listener="#{clasificacionBean.actualizar}" />
                              
                             <p:column headerText="Codigo" style="width:50px">  
                                 <h:outputText value="#{clasi.idclasificacion}" />  
@@ -49,7 +49,7 @@
                                         <h:outputText value="#{clasi.descclasificacion}" />  
                                     </f:facet>  
                                     <f:facet name="input">  
-                                        <p:inputText value="#{clasi.descclasificacion}" />  
+                                        <p:inputText value="#{clasificacionBean.descclasificacion}" />  
                                     </f:facet>  
                                 </p:cellEditor>  
                             </p:column>
