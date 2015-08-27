@@ -27,11 +27,9 @@ public class EnfoqueImpBO {
         return true;
     }
     
-    public boolean actualizar(EnfoqueBean obj){
-        Enfoque enfoque = new Enfoque();
-        enfoque.setIdenfoque(obj.getIdenfoque());
-        enfoque.setDescenfoque(obj.getDescenfoque());
-        getEnfoqueDAO().actualizar(enfoque);
+    public boolean actualizar(Enfoque obj, String desc){
+        obj.setDescenfoque(desc);
+        getEnfoqueDAO().actualizar(obj);
         return true;
     }
     

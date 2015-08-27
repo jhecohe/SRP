@@ -6,7 +6,10 @@
 package com.srp.beans;
 
 import com.srp.bo.NombreprocesoImpBO;
+import com.srp.persistencia.Nombreproceso;
 import com.srp.persistencia.Tipoproceso;
+import java.util.List;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
@@ -18,6 +21,23 @@ public class NombreprocesoBean {
     private int tipoproceso;
     private String descnombre;
     private NombreprocesoImpBO nombreprocesoBO;
+    
+    public void agregar(){
+        nombreprocesoBO.agregar(this);
+    }
+    
+    public void actualizar(RowEditEvent e){
+        Nombreproceso objeto = (Nombreproceso) e.getObject();
+        nombreprocesoBO.actualizar(objeto, descnombre);
+    }
+    
+    public List listado(){
+        return nombreprocesoBO.listado();
+    }
+    
+    public List tipoprocesoListado(){
+        return nombreprocesoBO.tipoprocesoListado();
+    }
 
     /**
      * @return the idnombreproceso

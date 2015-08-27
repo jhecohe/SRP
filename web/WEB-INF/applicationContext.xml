@@ -200,6 +200,7 @@
     </bean>
     <bean id="nombreprocesoBO" class="com.srp.bo.NombreprocesoImpBO">
         <property name="nombreprocesoDAO" ref="nombreprocesoDAO"></property>
+        <property name="tipoprocesoBO" ref="tipoprocesoBO"></property>
     </bean>
     <bean id="procesoasociadoBO" class="com.srp.bo.ProcesoasociadoImpBO">
         <property name="procesoasociadoDAO" ref="procesoasociadoDAO"></property>
@@ -209,6 +210,7 @@
     </bean>
     <bean id="seccionalBO" class="com.srp.bo.SeccionalImpBO">
         <property name="seccionalDAO" ref="seccionalDAO"></property>
+        <property name="regionalBO" ref="regionalBO"></property>
     </bean>
     <bean id="areaBO" class="com.srp.bo.AreaImpBO">
         <property name="areaDAO" ref="areaDAO"></property>
@@ -232,6 +234,7 @@
     </bean>
     <bean id="ciudadBO" class="com.srp.bo.CiudadImpBO">
         <property name="ciudadDAO" ref="ciudadDAO" ></property>
+        <property name="departamentoBO" ref="departamentoBO" ></property>
     </bean>
     <bean id="cargoBO" class="com.srp.bo.CargoImpBO">
         <property name="cargoDAO" ref="cargoDAO" ></property>

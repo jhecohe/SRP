@@ -35,6 +35,9 @@ public class CiudadBean {
         return getCiudadBO().listado();
     }
 
+    public List departamentoListado(){
+        return ciudadBO.departamentoListado();
+    }
     /**
      * @return the idciudad
      */

@@ -33,7 +33,6 @@ public class TipoprocesoImpBO {
     }
     
     public List<Tipoproceso> listado (){
-        System.out.println("tipoprocesoBO listado tipoproceso");
         return getTipoprocesoDAO().listado();
     }
 

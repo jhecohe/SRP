@@ -22,16 +22,16 @@
                         <p:overlayPanel id="datos" for="agregar" style="background: gray">
                             <p:panelGrid columns="2" >
                                 <h:outputLabel value="Nombre de la ciudad *" />
-                                <p:inputText value="#{ciudadBean.nombre}" required="true" id="nombre" label="nombre">
+                                <p:inputText value="#{ciudadBean.descciudad}" required="true" id="nombre" label="nombre">
                                     <f:validateLength minimum="2"/>
                                 </p:inputText> 
                                 <h:outputLabel value="Codigo de la ciudad *" />
-                                <p:inputText value="#{ciudadBean.codigo}" required="true" id="codigo" label="codigo">
+                                <p:inputText value="#{ciudadBean.codigociudad}" required="true" id="codigo" label="codigo">
                                     <f:validateLength minimum="2" maximum="4"/>
                                 </p:inputText> 
                                 <h:outputLabel value="Departamento" />
-                                <p:selectOneMenu value="#{ciudadBean.iddepartamento}" style="width: 180px">
-                                    <f:selectItems value="#{ciudadBean.departamentolist}" var="d"
+                                <p:selectOneMenu value="#{ciudadBean.departamento}" style="width: 180px">
+                                    <f:selectItems value="#{ciudadBean.departamentoListado()}" var="d"
                                                    itemLabel="#{d.descdepartamento}" itemValue="#{d.iddepartamento}" />
                                 </p:selectOneMenu>
                                 <p:commandButton actionListener="#{ciudadBean.agregar()}" value="Agregar" 
@@ -40,13 +40,13 @@
                             </p:panelGrid>
                         </p:overlayPanel>
                         <p:messages closable="true" showDetail="true"/>
-                        <p:dataTable var="ciu" value="#{ciudadBean.ciudadLista()}" id="ciudadList" editable="true" 
+                        <p:dataTable var="ciu" value="#{ciudadBean.listado()}" id="ciudadList" editable="true" 
                                      rows="15" paginator="true" rowsPerPageTemplate="15,20,30" style="width: 700px; height">  
                             <f:facet name="header">  
                                 Listado de Ciudades
                             </f:facet>  
 
-                            <p:ajax event="rowEdit" listener="#{ciudadBean.modificar}" />
+                            <p:ajax event="rowEdit" listener="#{ciudadBean.actualizar}" />
 
                             <p:column headerText="Codigo" style="width:50px">  
                                 <h:outputText value="#{ciu.idciudad}" />  
@@ -58,7 +58,7 @@
                                         <h:outputText value="#{ciu.descciudad}" />  
                                     </f:facet>  
                                     <f:facet name="input">  
-                                        <p:inputText value="#{ciu.descciudad}" />  
+                                        <p:inputText value="#{ciudadBean.descciudad}" />  
                                     </f:facet>  
                                 </p:cellEditor>  
                             </p:column>

@@ -19,6 +19,7 @@ import java.util.List;
 public class NombreprocesoImpBO {
     
     private NombreprocesoImpDAO nombreprocesoDAO;
+    private TipoprocesoImpBO tipoprocesoBO;
     
     public boolean agregar(NombreprocesoBean obj){
         Nombreproceso nombreproceso = new Nombreproceso();
@@ -45,6 +46,9 @@ public class NombreprocesoImpBO {
         return getNombreprocesoDAO().listado();
     }
     
+    public List<Tipoproceso> tipoprocesoListado(){
+        return tipoprocesoBO.listado();
+    }
     public List<Nombreproceso> listadoPorTipo(int idtipo){
         return getNombreprocesoDAO().listadoPorTipo(idtipo);
     }
@@ -61,5 +65,19 @@ public class NombreprocesoImpBO {
      */
     public void setNombreprocesoDAO(NombreprocesoImpDAO nombrerocesoDAO) {
         this.nombreprocesoDAO = nombrerocesoDAO;
+    }
+
+    /**
+     * @return the tipoprocesoBO
+     */
+    public TipoprocesoImpBO getTipoprocesoBO() {
+        return tipoprocesoBO;
+    }
+
+    /**
+     * @param tipoprocesoBO the tipoprocesoBO to set
+     */
+    public void setTipoprocesoBO(TipoprocesoImpBO tipoprocesoBO) {
+        this.tipoprocesoBO = tipoprocesoBO;
     }
 }

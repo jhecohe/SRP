@@ -19,6 +19,7 @@ import java.util.List;
 public class CiudadImpBO {
     
     private CiudadImpDAO ciudadDAO;
+    private DepartamentoImpBO departamentoBO;
     
     public boolean agragar(CiudadBean obj){
         Ciudad ciudad = new Ciudad();
@@ -40,6 +41,10 @@ public class CiudadImpBO {
     public List<Ciudad> listado(){
         return getCiudadDAO().listado();
     }
+    
+    public List<Departamento> departamentoListado(){
+        return departamentoBO.listado();
+    }
 
     /**
      * @return the ciudadDAO
@@ -53,5 +58,19 @@ public class CiudadImpBO {
      */
     public void setCiudadDAO(CiudadImpDAO ciudadDAO) {
         this.ciudadDAO = ciudadDAO;
+    }
+
+    /**
+     * @return the departamentoBO
+     */
+    public DepartamentoImpBO getDepartamentoBO() {
+        return departamentoBO;
+    }
+
+    /**
+     * @param departamentoBO the departamentoBO to set
+     */
+    public void setDepartamentoBO(DepartamentoImpBO departamentoBO) {
+        this.departamentoBO = departamentoBO;
     }
 }

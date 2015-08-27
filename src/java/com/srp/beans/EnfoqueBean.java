@@ -7,7 +7,9 @@
 package com.srp.beans;
 
 import com.srp.bo.EnfoqueImpBO;
+import com.srp.persistencia.Enfoque;
 import java.util.List;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
@@ -23,8 +25,9 @@ public class EnfoqueBean {
         getEnfoqueBO().agregar(this);
     }
     
-    public void actualizar(){
-        getEnfoqueBO().actualizar(this);
+    public void actualizar(RowEditEvent e){
+        Enfoque objeto = (Enfoque) e.getObject();
+        getEnfoqueBO().actualizar(objeto, descenfoque);
     }
     
     public void eliminar(){

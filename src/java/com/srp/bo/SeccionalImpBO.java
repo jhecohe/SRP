@@ -8,6 +8,7 @@ package com.srp.bo;
 
 import com.srp.beans.SeccionalBean;
 import com.srp.dao.SeccionalImpDAO;
+import com.srp.persistencia.Regional;
 import com.srp.persistencia.Seccional;
 import java.util.List;
 
@@ -18,8 +19,15 @@ import java.util.List;
 public class SeccionalImpBO {
     
     private SeccionalImpDAO seccionalDAO;
+    private RegionalImpBO regionalBO;
     
     public boolean agregar(SeccionalBean obj){
+        Seccional objeto = new Seccional();
+        Regional regional = new Regional();
+        regional.setIdregional(obj.getRegional());
+        objeto.setRegional(regional);
+        objeto.setCodigoseccional(obj.getCodigoseccional());
+        objeto.setDescseccional(obj.getDescseccional());
         return true;
     }
     
@@ -41,6 +49,9 @@ public class SeccionalImpBO {
         return getSeccionalDAO().listadoPorRegional(idregional);
     }
 
+    public List regionalListado(){
+        return getRegionalBO().listado();
+    }
     /**
      * @return the seccionalDAO
      */
@@ -53,5 +64,19 @@ public class SeccionalImpBO {
      */
     public void setSeccionalDAO(SeccionalImpDAO seccionalDAO) {
         this.seccionalDAO = seccionalDAO;
+    }
+
+    /**
+     * @return the regionalBO
+     */
+    public RegionalImpBO getRegionalBO() {
+        return regionalBO;
+    }
+
+    /**
+     * @param regionalBO the regionalBO to set
+     */
+    public void setRegionalBO(RegionalImpBO regionalBO) {
+        this.regionalBO = regionalBO;
     }
 }

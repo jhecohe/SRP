@@ -39,6 +39,10 @@ public class SeccionalBean {
     public List listado(){
        return getSeccionalBO().listado();
     }
+    
+    public List regionalListado(){
+        return getSeccionalBO().regionalListado();
+    }
     /**
      * @return the idseccional
      */

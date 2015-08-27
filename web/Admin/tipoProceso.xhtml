@@ -18,11 +18,11 @@
                         <p:overlayPanel id="datos" for="agregar" hideEffect="fade" style="background-color: scrollbar">
                             <p:panelGrid columns="2" style="width: 400px">
                                 <h:outputLabel value="Nombre del Tipo de Proceso *" />
-                                <p:inputText id="nombre" value="#{tipoProcesoBean.nombre}" required="true" label="nombre de tipo proceso">
+                                <p:inputText id="nombre" value="#{tipoprocesoBean.desctipo}" required="true" label="nombre de tipo proceso">
                                     <f:validateLength minimum="2"/>
                                 </p:inputText>
                                 <h:outputLabel value="Los campos con * son obligatorios"  style="font-style: italic; color: #045491"/>
-                                <p:commandButton action="#{tipoProcesoBean.agregar()}" value="Agregar" update="tipoList" ajax="false"/>
+                                <p:commandButton action="#{tipoprocesoBean.agregar()}" value="Agregar" update="tipoList" ajax="false"/>
                             </p:panelGrid>
                         </p:overlayPanel>
                         <p:menubar style="height: 26px; padding-right: 1%">
@@ -31,13 +31,13 @@
                         </p:menubar>   
                         <p:messages id="notificar" closable="true" showDetail="true"/> 
 
-                        <p:dataTable var="tipo" value="#{tipoProcesoBean.tipoprocesoLista()}" id="tipoList" editable="true" style="width: 300px">  
+                        <p:dataTable var="tipo" value="#{tipoprocesoBean.listado()}" id="tipoList" editable="true" style="width: 300px">  
 
                             <f:facet name="header">  
                                 Listado de Tipos de Proceso
                             </f:facet>  
 
-                            <p:ajax event="rowEdit" listener="#{tipoProcesoBean.modificar}" />
+                            <p:ajax event="rowEdit" listener="#{tipoprocesoBean.actualizar}" />
 
                             <p:column headerText="Codigo" style="width:50px">  
                                 <h:outputText value="#{tipo.idtipoproceso}" />  
@@ -49,7 +49,7 @@
                                         <h:outputText value="#{tipo.desctipo}" />  
                                     </f:facet>  
                                     <f:facet name="input">  
-                                        <p:inputText value="#{tipo.desctipo}" />  
+                                        <p:inputText value="#{tipoprocesoBean.desctipo}" />  
                                     </f:facet>  
                                 </p:cellEditor>  
                             </p:column>
