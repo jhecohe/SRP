@@ -15,7 +15,7 @@
                     <h1><h:outputText value="Agregar Riesgo" /></h1>
                     <h:form id="formulario"> 
                         <p:menubar style="height: 26px; padding-right: 1%">
-                            <p:menuitem id="agregar" value="Agregar Riesgo" immediate="true" icon="ui-icon-gear" rendered="#{riesgoBean.visual}"/> 
+                            <p:menuitem id="agregar" value="Agregar Riesgo" immediate="true" icon="ui-icon-gear" rendered="#{riesgoBean.adicionar}"/> 
                             <p:menuitem value="Actualizar" update="riesgoList" icon="ui-icon-arrowrefresh-1-w" ajax="false"/> 
                         </p:menubar>
                         <p:overlayPanel id="datos" for="agregar" hideEffect="fade" style="background-color: scrollbar">
@@ -91,7 +91,7 @@
                                 <h:outputText value="#{ries.enfoque.descenfoque}" />  
                             </p:column>
 
-                            <p:column headerText="M" width="20" rendered="#{riesgoBean.visual}">  
+                            <p:column headerText="M" width="20" rendered="#{riesgoBean.modificar}">  
                                 <p:rowEditor/>  
                             </p:column>  
                         </p:dataTable> 

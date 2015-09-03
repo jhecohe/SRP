@@ -30,7 +30,8 @@ public class ValoracionBean implements Serializable {
     private int calificacion1;
     private int calificacion2;
     private String valoracion;
-    public static boolean vusual;
+    public static boolean adicionar;
+    public static boolean modificar;
     
     public void agregar(){
         System.out.println( "Panorama" + panorama+"-origen "+ origen +"-probabilidad "+ probabilidad
@@ -276,5 +277,33 @@ public class ValoracionBean implements Serializable {
      */
     public void setValoracion(String valoracion) {
         this.valoracion = valoracion;
+    }
+
+    /**
+     * @return the adicionar
+     */
+    public boolean isAdicionar() {
+        return adicionar;
+    }
+
+    /**
+     * @param adicionar the adicionar to set
+     */
+    public void setAdicionar(boolean adicionar) {
+        this.adicionar = adicionar;
+    }
+
+    /**
+     * @return the modificar
+     */
+    public boolean isModificar() {
+        return modificar;
+    }
+
+    /**
+     * @param modificar the modificar to set
+     */
+    public void setModificar(boolean modificar) {
+        this.modificar = modificar;
     }
 }

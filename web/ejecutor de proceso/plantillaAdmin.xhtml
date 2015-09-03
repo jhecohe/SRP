@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/defaultAdmin.css"/>
+        <h:outputStylesheet name="./css/cssLayoutAdmin.css"/>
+        <title>S.R.P ejecutor de procesoistrador</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <div class="logo">
+                <h:graphicImage alt="logo srp" url="../resources/imagenes/logofinal.png" />
+            </div>
+            <div class="titular">
+                <h1>SISTEMA DE RIESGOS POR PROCESO</h1>
+            </div>
+            <div class="logoml">
+                <h:graphicImage alt="logo medicina legal" url="../resources/imagenes/logo-medicina.png" width="130" height="120"/>
+            </div>
+            <ui:insert name="top"></ui:insert>
+        </div>
+
+        <div id="menu">
+            <div class="info">
+                <div class="fecha">
+                    <h:outputText value="#{hora.fecha}" style="color: #65859F; font-weight: bolder"/>
+                </div>
+                <div class="usuario">
+                    <h:outputText value="#{usuarioActivo.usuarioNombre}" style="color: #65859F; font-weight: bolder"/>
+                </div>
+            </div>
+            <h:form id="fmenu">
+                <p:menubar>  
+                    <p:submenu label="Proceso" >  
+                        <p:menuitem value="Riesgo" action="/ejecutor de proceso/riesgo" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Procesos" action="/ejecutor de proceso/proceso" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Panorama de Riesgos" action="/ejecutor de proceso/panorama" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Valoracion" action="/ejecutor de proceso/valoracion" icon="ui-icon-document" ajax="false"/>                           
+                        <p:menuitem value="Mejoramiento" action="/ejecutor de proceso/mejoramiento" icon="ui-icon-document" ajax="false" />                        
+                    </p:submenu> 
+
+                    <p:submenu label="Funcionarios" >  
+                        <p:menuitem value="Funcionario" action="/ejecutor de proceso/funcionario" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Usuario" action="/ejecutor de proceso/usuario" icon="ui-icon-document" ajax="false"/> 
+                        <p:menuitem value="Perfil" action="/ejecutor de proceso/perfil" icon="ui-icon-document" ajax="false"/> 
+                        <p:menuitem value="Cargo" action="/ejecutor de proceso/cargo" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Grado" action="/ejecutor de proceso/grado" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Clase" action="/ejecutor de proceso/clase" icon="ui-icon-document" ajax="false"/>
+                    </p:submenu>    
+
+                    <p:submenu label="Administrativo" >  
+                        <p:menuitem value="Clasificacion" action="/ejecutor de proceso/clasificacion" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Enfoque" action="/ejecutor de proceso/enfoque" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Estado" action="/ejecutor de proceso/estado" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Tipo Proceso" action="/ejecutor de proceso/tipoProceso" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Nombre Proceso" action="/ejecutor de proceso/nombreProceso" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Departamento" action="/ejecutor de proceso/departamento" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Ciudad" action="/ejecutor de proceso/ciudad" icon="ui-icon-document" ajax="false"/>                         
+                        <p:menuitem value="Regional" action="/ejecutor de proceso/regional" icon="ui-icon-document" ajax="false"/> 
+                        <p:menuitem value="Seccional" action="/ejecutor de proceso/seccional" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Sub-Area" action="/ejecutor de proceso/subarea" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Area" action="/ejecutor de proceso/area" icon="ui-icon-document" ajax="false"/>                    
+                    </p:submenu>
+
+                    <p:submenu label="Reportes">
+                        <p:menuitem value="Funcionarios" action="/reportes/funcionarioReporte" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Riesgos por Proceso" action="/reportes/porProcesoReporte" icon="ui-icon-document" ajax="false"/>
+                        <p:menuitem value="Riesgos por Responsable" action="/reportes/porResponsableReporte" icon="ui-icon-document" ajax="false"/>
+                    </p:submenu>
+                    
+                    <p:menuitem value="Cerrar Sesion" action="#{loginBean.cerrarCesion()}" style="margin-left: 500px" icon="ui-icon-extlink"/>
+                </p:menubar>
+            </h:form>
+            <ui:insert name="menu">
+
+            </ui:insert>  
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">Powered by @Jherson A. Cohecha S.</ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

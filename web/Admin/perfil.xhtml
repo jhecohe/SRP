@@ -73,16 +73,16 @@
                             <h:panelGrid columns="2" style="width: 160px;">
                                 <h:outputText value="Adicionar"/>
                                 <h:outputText value="Modificar"/>
-                                <p:selectBooleanCheckbox/>
-                                <p:selectBooleanCheckbox/>
-                                <p:selectBooleanCheckbox/>
-                                <p:selectBooleanCheckbox/>
-                                <p:selectBooleanCheckbox/>
-                                <p:selectBooleanCheckbox/>
-                                <p:selectBooleanCheckbox/>
-                                <p:selectBooleanCheckbox/>
-                                <p:selectBooleanCheckbox/>
-                                <p:selectBooleanCheckbox/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.riesgoAdicionar}"/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.riesgoModificar}"/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.procesoAdicionar}"/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.procesoModificar}"/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.panormaAdicionar}"/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.panormaModificar}"/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.valoracionAdicionar}"/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.valoracionModificar}"/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.mejoramientoAdicionar}"/>
+                                <p:selectBooleanCheckbox value="#{perfilBean.mejoramientoModificar}"/>
                             </h:panelGrid>
                         </p:panelGrid>
                         <p:separator/>

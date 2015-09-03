@@ -65,22 +65,67 @@ public class PerfilBean implements Serializable {
 
         switch(descperfil){
             case "administrador":
-                filtroOperador();
+                
                 break;
             case "operador":
-                VisualOperador.visualriesgo = isRiesgoAdicionar();
+                OperadorVisual.riesgoAdicion = isRiesgoAdicionar();
+                OperadorVisual.riesgoModificacion = isRiesgoModificar();
+                OperadorVisual.procesoAdicion = isProcesoAdicionar();
+                OperadorVisual.procesoModificacion = isProcesoModificar();
+                OperadorVisual.panoramaAdicion = isPanormaAdicionar();
+                OperadorVisual.panoramaModificacion = isPanormaModificar();
+                OperadorVisual.valoracionAdicion = isValoracionAdicionar();
+                OperadorVisual.valoracionModificacion = isValoracionModificar();
+                OperadorVisual.mejoramientoAdicion = isMejoramientoAdicionar();
+                OperadorVisual.mejoramientoModificacion = isMejoramientoModificar();
                 break;
             case "dueño de proceso":
-                filtroOperador();
+                DuenoVisual.riesgoAdicion = isRiesgoAdicionar();
+                DuenoVisual.riesgoModificacion = isRiesgoModificar();
+                DuenoVisual.procesoAdicion = isProcesoAdicionar();
+                DuenoVisual.procesoModificacion = isProcesoModificar();
+                DuenoVisual.panoramaAdicion = isPanormaAdicionar();
+                DuenoVisual.panoramaModificacion = isPanormaModificar();
+                DuenoVisual.valoracionAdicion = isValoracionAdicionar();
+                DuenoVisual.valoracionModificacion = isValoracionModificar();
+                DuenoVisual.mejoramientoAdicion = isMejoramientoAdicionar();
+                DuenoVisual.mejoramientoModificacion = isMejoramientoModificar(); 
                 break;
             case "ejecutor de proceso":
-                filtroOperador();
+                EjecutorVisual.riesgoAdicion = isRiesgoAdicionar();
+                EjecutorVisual.riesgoModificacion = isRiesgoModificar();
+                EjecutorVisual.procesoAdicion = isProcesoAdicionar();
+                EjecutorVisual.procesoModificacion = isProcesoModificar();
+                EjecutorVisual.panoramaAdicion = isPanormaAdicionar();
+                EjecutorVisual.panoramaModificacion = isPanormaModificar();
+                EjecutorVisual.valoracionAdicion = isValoracionAdicionar();
+                EjecutorVisual.valoracionModificacion = isValoracionModificar();
+                EjecutorVisual.mejoramientoAdicion = isMejoramientoAdicionar();
+                EjecutorVisual.mejoramientoModificacion = isMejoramientoModificar();
                 break;
             case "gestor de riesgo":
-                filtroOperador();
+                GestorVisual.riesgoAdicion = isRiesgoAdicionar();
+                GestorVisual.riesgoModificacion = isRiesgoModificar();
+                GestorVisual.procesoAdicion = isProcesoAdicionar();
+                GestorVisual.procesoModificacion = isProcesoModificar();
+                GestorVisual.panoramaAdicion = isPanormaAdicionar();
+                GestorVisual.panoramaModificacion = isPanormaModificar();
+                GestorVisual.valoracionAdicion = isValoracionAdicionar();
+                GestorVisual.valoracionModificacion = isValoracionModificar();
+                GestorVisual.mejoramientoAdicion = isMejoramientoAdicionar();
+                GestorVisual.mejoramientoModificacion = isMejoramientoModificar();
                 break;
             case "auditor":
-                filtroOperador();
+                AuditorVisual.riesgoAdicion = isRiesgoAdicionar();
+                AuditorVisual.riesgoModificacion = isRiesgoModificar();
+                AuditorVisual.procesoAdicion = isProcesoAdicionar();
+                AuditorVisual.procesoModificacion = isProcesoModificar();
+                AuditorVisual.panoramaAdicion = isPanormaAdicionar();
+                AuditorVisual.panoramaModificacion = isPanormaModificar();
+                AuditorVisual.valoracionAdicion = isValoracionAdicionar();
+                AuditorVisual.valoracionModificacion = isValoracionModificar();
+                AuditorVisual.mejoramientoAdicion = isMejoramientoAdicionar();
+                AuditorVisual.mejoramientoModificacion = isMejoramientoModificar();
                 break;
         }
     }

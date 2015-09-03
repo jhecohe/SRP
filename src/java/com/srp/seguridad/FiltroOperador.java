@@ -45,10 +45,4 @@ public class FiltroOperador implements Filter {
     public void destroy() {
         configuracion = null;
     }
-    
-    public void permisos(String[] vistas){
-        for (int i = 0; i < vistas.length; i++) {
-            
-        }
-    }
 }

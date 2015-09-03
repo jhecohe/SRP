@@ -27,7 +27,8 @@ public class ProcesoBean implements Serializable {
     private Date creado;
     private Date modificado;
     private ProcesoImpBO procesoBO;
-    public static boolean visual;
+    public static boolean adicionar;
+    public static boolean modificar;
     
     private int tipoproceso;
     private int nombreproceso;
@@ -293,16 +294,30 @@ public class ProcesoBean implements Serializable {
     }
 
     /**
-     * @return the visual
+     * @return the adicionar
      */
-    public boolean isVisual() {
-        return visual;
+    public boolean isAdicionar() {
+        return adicionar;
     }
 
     /**
-     * @param visual the visual to set
+     * @param adicionar the adicionar to set
      */
-    public void setVisual(boolean visual) {
-        this.visual = visual;
+    public void setAdicionar(boolean adicionar) {
+        this.adicionar = adicionar;
+    }
+
+    /**
+     * @return the modificar
+     */
+    public boolean isModificar() {
+        return modificar;
+    }
+
+    /**
+     * @param modificar the modificar to set
+     */
+    public void setModificar(boolean modificar) {
+        this.modificar = modificar;
     }
 }

@@ -28,7 +28,8 @@ public class RiesgoBean {
      private String descriesgo;
      private Integer entrada;
      private RiesgoImpBO riesgoBO;
-     public static boolean visual;
+     public static boolean adicionar;
+     public static boolean modificar;
      
      public RiesgoBean(){
          String usuario = ((UsuarioBean)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(USER_KEY)).toString();
@@ -201,16 +202,30 @@ public class RiesgoBean {
     }
 
     /**
-     * @return the visual
+     * @return the adicionar
      */
-    public boolean isVisual() {
-        return visual;
+    public boolean isAdicionar() {
+        return adicionar;
     }
 
     /**
-     * @param visual the visual to set
+     * @param adicionar the adicionar to set
      */
-    public void setVisual(boolean visual) {
-        this.visual = visual;
+    public void setAdicionar(boolean adicionar) {
+        this.adicionar = adicionar;
+    }
+
+    /**
+     * @return the modificar
+     */
+    public boolean isModificar() {
+        return modificar;
+    }
+
+    /**
+     * @param modificar the modificar to set
+     */
+    public void setModificar(boolean modificar) {
+        this.modificar = modificar;
     }
 }

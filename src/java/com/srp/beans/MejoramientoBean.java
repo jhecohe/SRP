@@ -31,7 +31,8 @@ public class MejoramientoBean implements Serializable {
     private int riesgo;
     private Date actual = new Date();
     private MejoramientoImpBO mejoramientoBO;
-    public static boolean visual;
+    public static boolean adicionar;
+    public static boolean modificar;
     
     public void agregar(){
         System.out.println("panorama  " + panorama);
@@ -240,18 +241,32 @@ public class MejoramientoBean implements Serializable {
     public void setPanoramabusqueda(int panoramabusqueda) {
         this.panoramabusqueda = panoramabusqueda;
     }
-    
+   
     /**
-     * @return the visual
+     * @return the adicionar
      */
-    public static boolean isVisual() {
-        return visual;
+    public boolean isAdicionar() {
+        return adicionar;
     }
 
     /**
-     * @param aVisual the visual to set
+     * @param adicionar the adicionar to set
      */
-    public static void setVisual(boolean aVisual) {
-        visual = aVisual;
+    public void setAdicionar(boolean adicionar) {
+        this.adicionar = adicionar;
+    }
+
+    /**
+     * @return the modificar
+     */
+    public boolean isModificar() {
+        return modificar;
+    }
+
+    /**
+     * @param modificar the modificar to set
+     */
+    public void setModificar(boolean modificar) {
+        this.modificar = modificar;
     }
 }

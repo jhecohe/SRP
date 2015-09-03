@@ -17,7 +17,7 @@
                     <br/>
                     <h:form>   
                         <p:menubar style="height: 26px; padding-right: 1%">
-                            <p:menuitem id="agregar" value="Agregar Mejoramiento" update=""  immediate="true" icon="ui-icon-gear" rendered="#{mejoramientoBean.visual}"/> 
+                            <p:menuitem id="agregar" value="Agregar Mejoramiento" update=""  immediate="true" icon="ui-icon-gear" rendered="#{mejoramientoBean.adicionar}"/> 
                             <p:menuitem value="Actualizar" update="mejoramientoList" icon="ui-icon-arrowrefresh-1-w" immediate="true" ajax="false"/> 
                         </p:menubar> 
 
@@ -126,7 +126,7 @@
                                 </p:cellEditor>  
                             </p:column>
 
-                            <p:column headerText="Editar" width="5">  
+                            <p:column headerText="Editar" width="5" rendered="#{mejoramientoBean.modificar}">  
                                 <p:rowEditor />  
                             </p:column>  
 

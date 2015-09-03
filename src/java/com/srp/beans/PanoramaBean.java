@@ -22,7 +22,8 @@ public class PanoramaBean {
     private int riesgoByIdcausa;
     private Panorama seleccion;
     private PanoramaImpBO panoramaBO;
-    public static boolean vusual;
+    public static boolean adicionar;
+    public static boolean modificar;
     
     public void agregar(){
         getPanoramaBO().agregar(this);
@@ -137,17 +138,31 @@ public class PanoramaBean {
     }
 
     /**
-     * @return the vusual
+     * @return the adicionar
      */
-    public boolean isVusual() {
-        return vusual;
+    public boolean isAdicionar() {
+        return adicionar;
     }
 
     /**
-     * @param vusual the vusual to set
+     * @param adicionar the adicionar to set
      */
-    public void setVusual(boolean vusual) {
-        this.vusual = vusual;
+    public void setAdicionar(boolean adicionar) {
+        this.adicionar = adicionar;
+    }
+
+    /**
+     * @return the modificar
+     */
+    public boolean isModificar() {
+        return modificar;
+    }
+
+    /**
+     * @param modificar the modificar to set
+     */
+    public void setModificar(boolean modificar) {
+        this.modificar = modificar;
     }
     
 }
