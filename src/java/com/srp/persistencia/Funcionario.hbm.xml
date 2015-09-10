@@ -13,7 +13,7 @@
         <many-to-one name="grado" class="com.srp.persistencia.Grado" fetch="select">
             <column name="idgrado" not-null="true" />
         </many-to-one>
-        <many-to-one name="estado" class="com.srp.persistencia.Estado" fetch="select">
+        <many-to-one name="estado" class="com.srp.persistencia.Estado" fetch="select" cascade="delete">
             <column name="idestado" not-null="true" />
         </many-to-one>
         <many-to-one name="ciudadByCiuIdciudad2" class="com.srp.persistencia.Ciudad" fetch="select">

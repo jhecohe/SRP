@@ -12,6 +12,7 @@ import com.srp.persistencia.Area;
 import com.srp.persistencia.Cargo;
 import com.srp.persistencia.Ciudad;
 import com.srp.persistencia.Clase;
+import com.srp.persistencia.Estado;
 import com.srp.persistencia.Funcionario;
 import com.srp.persistencia.Grado;
 import com.srp.persistencia.Regional;
@@ -36,7 +37,42 @@ public class FuncionarioImpBO implements FuncionarioIntBO {
     
     @Override
     public boolean agregar(FuncionarioBean obj) {
+        
         Funcionario funcionario = new Funcionario();
+        funcionario.setApellido(obj.getApellido());
+        Cargo cargo = new Cargo();
+        cargo.setIdcargo(obj.getCargo());
+        funcionario.setCargo(cargo);
+        Ciudad ciudadExp = new Ciudad();
+        ciudadExp.setIdciudad(obj.getCiudadByCiuIdciudad());
+        funcionario.setCiudadByCiuIdciudad(ciudadExp);
+        Ciudad ciudadNac = new Ciudad();
+        ciudadNac.setIdciudad(obj.getCiudadByCiuIdciudad2());
+        funcionario.setCiudadByCiuIdciudad2(ciudadNac);
+        Ciudad ciudadResi = new Ciudad();
+        ciudadResi.setIdciudad(obj.getCiudadByIdciudad());
+        funcionario.setCiudadByIdciudad(ciudadResi);
+        Clase clase = new Clase();
+        clase.setIdclase(obj.getClase());
+        funcionario.setClase(clase);
+        funcionario.setCorreo(obj.getCorreo());
+        funcionario.setDireccion(obj.getDireccion());
+        Estado estado = new Estado();
+        estado.setIdestado(obj.getEstado());
+        funcionario.setEstado(estado);
+        funcionario.setFechanacimiento(obj.getFechanacimiento());
+        Grado grado = new Grado();
+        grado.setIdgrado(obj.getGrado());
+        funcionario.setGrado(grado);
+        funcionario.setIdentificacion(obj.getIdentificacion());
+        funcionario.setNombre(obj.getNombre());
+        funcionario.setSegapellido(obj.getSegapellido());
+        funcionario.setSegnombre(obj.getSegnombre());
+        Subarea subarea = new Subarea();
+        subarea.setIdsubarea(obj.getSubarea());
+        funcionario.setSubarea(subarea);
+        funcionario.setTelefono(obj.getTelefono());
+        
         getFuncionarioDAO().agregar(funcionario);
         return true;
     }

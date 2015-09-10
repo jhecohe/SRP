@@ -43,7 +43,8 @@
                                 </p:inputText>
                                 <p:message for="cedula" display="icon"/> 
                                 <h:outputLabel value="Ciudad Expedicion" />
-                                <p:selectOneMenu value="#{funcionarioBean.ciudadByIdciudad}" style="width: 180px" id="ciudadExp">
+                                <p:selectOneMenu value="#{funcionarioBean.ciudadByIdciudad}" style="width: 180px" id="ciudadExp" 
+                                                 filter="true" filterMatchMode="startsWith">
                                     <f:selectItems value="#{funcionarioBean.listadoCiudad()}" var="ciu"
                                                    itemLabel="#{ciu.descciudad}" itemValue="#{ciu.idciudad}" />
                                 </p:selectOneMenu>
@@ -55,7 +56,8 @@
                                 </p:calendar> 
                                 <p:message for="fecha" display="icon"/> 
                                 <h:outputLabel value="Lugar de Nacimiento" />
-                                <p:selectOneMenu value="#{funcionarioBean.ciudadByCiuIdciudad}" style="width: 180px" id="ciudad" label="lugar de nacimiento">
+                                <p:selectOneMenu value="#{funcionarioBean.ciudadByCiuIdciudad}" style="width: 180px" id="ciudad" label="lugar de nacimiento"
+                                                 filter="true" filterMatchMode="startsWith">
                                     <f:selectItems value="#{funcionarioBean.listadoCiudad()}" var="ciu"
                                                    itemLabel="#{ciu.descciudad}" itemValue="#{ciu.idciudad}" />
                                 </p:selectOneMenu>
@@ -71,7 +73,8 @@
                                 </p:inputText>
                                 <p:message for="correo" display="icon"/> 
                                 <h:outputLabel value="Ciudad Residencia" />
-                                <p:selectOneMenu value="#{funcionarioBean.ciudadByCiuIdciudad2}" style="width: 180px" id="ciudadReci">
+                                <p:selectOneMenu value="#{funcionarioBean.ciudadByCiuIdciudad2}" style="width: 180px" id="ciudadReci"
+                                                 filter="true" filterMatchMode="startsWith">
                                     <f:selectItems value="#{funcionarioBean.listadoCiudad()}" var="ciu"
                                                    itemLabel="#{ciu.descciudad}" itemValue="#{ciu.idciudad}" />
                                 </p:selectOneMenu>
@@ -83,7 +86,8 @@
                                 <p:message for="direc" display="icon"/>  
                                 
                                 <h:outputLabel value="Cargo:  *" />
-                                <p:selectOneMenu value="#{funcionarioBean.cargo}" id="cargo" style="width: 180px" label="cargo">    
+                                <p:selectOneMenu value="#{funcionarioBean.cargo}" id="cargo" style="width: 180px" label="cargo" 
+                                                 filter="true" filterMatchMode="startsWith">    
                                     <f:selectItem itemLabel="Seleccione Cargo" itemValue="null"/>
                                     <f:selectItems value="#{funcionarioBean.listadoCargo()}" var="car"
                                                    itemLabel="#{car.desccargo}" itemValue="#{car.idcargo}" />
@@ -91,14 +95,16 @@
                                 <p:message for="cargo" display="icon"/> 
                                 
                                 <h:outputLabel value="Grado:  *" />
-                                <p:selectOneMenu value="#{funcionarioBean.grado}" id="grado" style="width: 180px" label="grado">
+                                <p:selectOneMenu value="#{funcionarioBean.grado}" id="grado" style="width: 180px" label="grado" 
+                                                 filter="true" filterMatchMode="startsWith">
                                     <f:selectItem itemLabel="Seleccione Grado" itemValue="null"/>
                                     <f:selectItems value="#{funcionarioBean.listadoGrado()}" var="gra"
                                                    itemLabel="#{gra.descgrado}" itemValue="#{gra.idgrado}" />
                                 </p:selectOneMenu>
                                 <p:message for="grado" display="icon"/> 
                                 <h:outputLabel value="Clase:  *" />
-                                <p:selectOneMenu value="#{funcionarioBean.clase}" id="clase" style="width: 180px" label="clase">
+                                <p:selectOneMenu value="#{funcionarioBean.clase}" id="clase" style="width: 180px" label="clase"
+                                                 filter="true" filterMatchMode="startsWith">
                                     <f:selectItem itemLabel="Seleccione Clase" itemValue="null"/>
                                     <f:selectItems value="#{funcionarioBean.listadoClase()}" var="cla"
                                                    itemLabel="#{cla.descclase}" itemValue="#{cla.idclase}" />
@@ -107,7 +113,8 @@
 
 
                                 <h:outputLabel value="Region: *" />
-                                <p:selectOneMenu id="region" value="#{funcionarioBean.region}" style="width: 180px">
+                                <p:selectOneMenu id="region" value="#{funcionarioBean.region}" style="width: 180px"
+                                                 filter="true" filterMatchMode="startsWith">
                                     <f:selectItem itemLabel="Seleccione Region" itemValue=""/>
                                     <f:selectItems value="#{funcionarioBean.listadoRegional()}" var="r"
                                                    itemLabel="#{r.descregional}" itemValue="#{r.idregional}"/>
@@ -116,7 +123,8 @@
                                 <p:message for="region" display="icon"/> 
 
                                 <h:outputLabel value="Seccional: *" />
-                                <p:selectOneMenu id="seccional" value="#{funcionarioBean.seccional}" style="width: 180px">
+                                <p:selectOneMenu id="seccional" value="#{funcionarioBean.seccional}" style="width: 180px"
+                                                 filter="true" filterMatchMode="startsWith">
                                     <f:selectItem itemLabel="Seleccione Seccional" itemValue=""/>
                                     <f:selectItems value="#{funcionarioBean.listadoSeccional()}" var="s"
                                                    itemLabel="#{s.descseccional}" itemValue="#{s.idseccional}"/>
@@ -125,7 +133,8 @@
                                 <p:message for="seccional" display="icon"/> 
 
                                 <h:outputLabel value="Area: *" />
-                                <p:selectOneMenu id="area" value="#{funcionarioBean.area}" style="width: 180px">
+                                <p:selectOneMenu id="area" value="#{funcionarioBean.area}" style="width: 180px" 
+                                                 filter="true" filterMatchMode="startsWith">
                                     <f:selectItem itemLabel="Seleccione Area" itemValue=""/>
                                     <f:selectItems value="#{funcionarioBean.listadoArea()}" var="a"
                                                    itemLabel="#{a.descarea}" itemValue="#{a.idarea}"/>
@@ -134,7 +143,8 @@
                                 <p:message for="area" display="icon"/> 
 
                                 <h:outputLabel value="Subarea: *" />
-                                <p:selectOneMenu id="subarea" value="#{funcionarioBean.subarea}" style="width: 180px">
+                                <p:selectOneMenu id="subarea" value="#{funcionarioBean.subarea}" style="width: 180px"
+                                                 filter="true" filterMatchMode="startsWith">
                                     <f:selectItem itemLabel="Seleccione Subarea" itemValue=""/>
                                     <f:selectItems value="#{funcionarioBean.listadoSubarea()}" var="sub"
                                                    itemLabel="#{sub.descsubarea}" itemValue="#{sub.idsubarea}"/>
