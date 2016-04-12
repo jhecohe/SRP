@@ -19,6 +19,7 @@ import org.primefaces.event.RowEditEvent;
 public class ProcesoBean implements Serializable {
 
     private int idproceso;
+    private int riesgo;
     private int estado;
     private int subarea;
     private int procesoasociado;
@@ -50,8 +51,13 @@ public class ProcesoBean implements Serializable {
     }
 
     public List<Proceso> listado() {
-        List<Proceso> procesos = getProcesoBO().listado();
-        return procesos;
+        //List<Proceso> procesos = getProcesoBO().listado();
+        return getProcesoBO().listado();
+    }
+    
+    public List listadoMapaRiesgo(){
+        System.out.println("Listado riesgos en procesobean" + riesgo);
+        return getProcesoBO().listadoMapa(riesgo);
     }
     
     public List tipoprocesoListado(){
@@ -95,6 +101,10 @@ public class ProcesoBean implements Serializable {
     
     public List estadoListado(){
         return getProcesoBO().estadoListado();
+    }
+    
+    public List riesgoListado(){
+        return getProcesoBO().listadoRiesgos();
     }
 
     /**
@@ -319,5 +329,19 @@ public class ProcesoBean implements Serializable {
      */
     public void setModificar(boolean modificar) {
         this.modificar = modificar;
+    }
+
+    /**
+     * @return the riesgo
+     */
+    public int getRiesgo() {
+        return riesgo;
+    }
+
+    /**
+     * @param riesgo the riesgo to set
+     */
+    public void setRiesgo(int riesgo) {
+        this.riesgo = riesgo;
     }
 }

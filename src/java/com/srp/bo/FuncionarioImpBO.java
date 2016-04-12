@@ -58,7 +58,7 @@ public class FuncionarioImpBO implements FuncionarioIntBO {
         funcionario.setCorreo(obj.getCorreo());
         funcionario.setDireccion(obj.getDireccion());
         Estado estado = new Estado();
-        estado.setIdestado(obj.getEstado());
+        estado.setIdestado(1);
         funcionario.setEstado(estado);
         funcionario.setFechanacimiento(obj.getFechanacimiento());
         Grado grado = new Grado();
@@ -123,16 +123,16 @@ public class FuncionarioImpBO implements FuncionarioIntBO {
         return getRegionalBO().listado();
     }
     
-    public List<Seccional> listadoSeccional(){
-        return getSeccionalBO().listado();
+    public List<Seccional> listadoSeccional(int idregional){
+        return getSeccionalBO().listadoPorRegional(idregional);
     }
     
-    public List<Area> listadoArea(){
-        return getAreaBO().listado();
+    public List<Area> listadoArea(int idseccional){
+        return getAreaBO().listadoPorSeccional(idseccional);
     }
     
-    public List<Subarea> listadoSubarea(){
-        return getSubareaBO().listado();
+    public List<Subarea> listadoSubarea(int idarea){
+        return getSubareaBO().listadoPorArea(idarea);
     }
 
     /**

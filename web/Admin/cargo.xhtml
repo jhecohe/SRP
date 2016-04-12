@@ -17,7 +17,7 @@
                         <p:overlayPanel id="datos" for="agregar" hideEffect="fade" style="background-color: scrollbar">
                             <p:panelGrid columns="2" style="width: 400px">
                                 <h:outputLabel value="Nombre del Cargo *" />
-                                <p:inputText id="nombre" value="#{cargoBean.nombre}" required="true" label="Cargo">
+                                <p:inputText id="nombre" value="#{cargoBean.desccargo}" required="true" label="Cargo">
                                     <f:validateLength minimum="2"/>
                                 </p:inputText>
                                 <h:outputLabel value="Los campos con * son obligatorios"  style="font-style: italic; color: #045491"/>
@@ -29,7 +29,7 @@
                             <p:menuitem value="Actualizar" update="cargoList" icon="ui-icon-arrowrefresh-1-w" ajax="false"/> 
                         </p:menubar>   
                         <p:messages for="nombre" closable="true" showSummary="true"/> 
-                        <p:dataTable var="car" value="#{cargoBean.cargoListado()}" id="cargoList" editable="true" 
+                        <p:dataTable var="car" value="#{cargoBean.listado()}" id="cargoList" editable="true" 
                                      style="width: 600px" scrollHeight="100">  
                             <p:menubar />
                             <f:facet name="header">  

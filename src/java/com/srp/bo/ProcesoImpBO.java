@@ -14,11 +14,13 @@ import com.srp.persistencia.Nombreproceso;
 import com.srp.persistencia.Proceso;
 import com.srp.persistencia.Procesoasociado;
 import com.srp.persistencia.Regional;
+import com.srp.persistencia.Riesgo;
 import com.srp.persistencia.Seccional;
 import com.srp.persistencia.Subarea;
 import com.srp.persistencia.Tipoproceso;
 import java.util.Date;
 import java.util.List;
+import reportes.MapaRiesgos;
 
 /**
  *
@@ -32,6 +34,9 @@ public class ProcesoImpBO implements ProcesoIntBO {
     private ProcesoasociadoImpBO procesoasociadoBO;
     private RegionalImpBO regionalBO;
     private SeccionalImpBO seccionalBO;
+    private RiesgoImpBO riesgoBO;
+
+    
     private AreaImpBO areaBO;
     private SubareaImpBO subareaBO;
     private FuncionarioImpBO funcionarioBO;
@@ -84,6 +89,10 @@ public class ProcesoImpBO implements ProcesoIntBO {
         return getProcesoDAO().listado();
     }
     
+    public List<MapaRiesgos> listadoMapa(int riesgo) {
+        return getProcesoDAO().listadoMapa(riesgo);
+    }
+        
     List<Proceso> procesoPorIdListado(int proceso) {
         return getProcesoDAO().procesoPorIdListado(proceso);
     }
@@ -120,6 +129,10 @@ public class ProcesoImpBO implements ProcesoIntBO {
     public List<Funcionario> funcionarioPorSubarea(int idsubarea){
         System.out.println("ProcesoImpBO listado funcionario por subarea");
         return getFuncionarioBO().listadoPorSubarea(idsubarea);
+    }
+    
+    public List<Riesgo> listadoRiesgos(){
+        return getRiesgoBO().listado();
     }
     
     public List<Estado> estadoListado(){
@@ -264,5 +277,13 @@ public class ProcesoImpBO implements ProcesoIntBO {
      */
     public void setEstadoBO(EstadoImpBO estadoBO) {
         this.estadoBO = estadoBO;
+    }
+    
+    public RiesgoImpBO getRiesgoBO() {
+        return riesgoBO;
+    }
+
+    public void setRiesgoBO(RiesgoImpBO riesgoBO) {
+        this.riesgoBO = riesgoBO;
     }
 }

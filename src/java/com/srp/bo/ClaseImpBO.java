@@ -21,6 +21,7 @@ public class ClaseImpBO {
     
     public boolean agregar(ClaseBean obj){
         Clase clase = new Clase();
+        clase.setDescclase(obj.getDescclase());
         getClaseDAO().agregar(clase);
         return true;
     }

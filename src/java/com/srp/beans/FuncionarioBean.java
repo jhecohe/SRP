@@ -7,6 +7,7 @@ package com.srp.beans;
 
 import com.srp.bo.FuncionarioImpBO;
 import com.srp.persistencia.Funcionario;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import org.primefaces.event.RowEditEvent;
@@ -15,7 +16,7 @@ import org.primefaces.event.RowEditEvent;
  *
  * @author jhecohe
  */
-public class FuncionarioBean {
+public class FuncionarioBean implements Serializable{
 
     private int idfuncionario;
     private int grado;
@@ -87,15 +88,16 @@ public class FuncionarioBean {
     }
     
     public List listadoSeccional(){
-        return getFuncionarioBO().listadoSeccional();
+        return getFuncionarioBO().listadoSeccional(region);
     }
     
     public List listadoArea(){
-        return getFuncionarioBO().listadoArea();
+        System.out.println("Entro en area" + getSeccional());
+        return getFuncionarioBO().listadoArea(seccional);
     }
     
     public List listadoSubarea(){
-        return getFuncionarioBO().listadoSubarea();
+        return getFuncionarioBO().listadoSubarea(area);
     }
 
     /**

@@ -124,13 +124,14 @@
 
                                 <h:outputLabel value="Seccional: *" />
                                 <p:selectOneMenu id="seccional" value="#{funcionarioBean.seccional}" style="width: 180px"
-                                                 filter="true" filterMatchMode="startsWith">
-                                    <f:selectItem itemLabel="Seleccione Seccional" itemValue=""/>
+                                                 filter="true" filterMatchMode="startsWith" required="true">
+                                    <f:selectItem itemLabel="Seleccione Seccional" noSelectionOption=""/>
                                     <f:selectItems value="#{funcionarioBean.listadoSeccional()}" var="s"
                                                    itemLabel="#{s.descseccional}" itemValue="#{s.idseccional}"/>
                                     <p:ajax update="area" />
                                 </p:selectOneMenu>
                                 <p:message for="seccional" display="icon"/> 
+                                
 
                                 <h:outputLabel value="Area: *" />
                                 <p:selectOneMenu id="area" value="#{funcionarioBean.area}" style="width: 180px" 

@@ -62,6 +62,7 @@ public class RiesgoImpBO implements RiesgoIntBO {
 
     @Override
     public List<Riesgo> listado() {
+        System.out.println("Listado riesgos en RiesgoImpBO");
         List<Riesgo> riesgos = getRiesgoDAO().listado();
         return riesgos;
     }

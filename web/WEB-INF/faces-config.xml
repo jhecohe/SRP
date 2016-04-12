@@ -114,7 +114,7 @@
     <managed-bean>
         <managed-bean-name>funcionarioBean</managed-bean-name>
         <managed-bean-class>com.srp.beans.FuncionarioBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>-<managed-property>
+        <managed-bean-scope>session</managed-bean-scope>-<managed-property>
             <property-name>funcionarioBO</property-name>
             <value>#{funcionarioBO}</value>
         </managed-property>

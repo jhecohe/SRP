@@ -7,6 +7,7 @@ package com.srp.bo;
 
 import com.srp.beans.UsuarioBean;
 import com.srp.dao.UsuarioImpDAO;
+import com.srp.persistencia.Estado;
 import com.srp.persistencia.Funcionario;
 import com.srp.persistencia.Perfil;
 import com.srp.persistencia.Usuario;
@@ -29,16 +30,20 @@ public class UsuarioImpBO implements UsuarioIntBO {
 
     @Override
     public boolean agregar(UsuarioBean obj) {
+        System.out.println("Datos"+ obj.getFuncionario()+" "+obj.getPerfil()+" "+obj.getClave());
         Usuario usuario = new Usuario();
         Funcionario funcionario = new Funcionario();
         funcionario.setIdfuncionario(obj.getFuncionario());
         Perfil perfil = new Perfil();
+        Estado estado = new Estado();
+        estado.setIdestado(1);
         perfil.setIdperfil(obj.getIdperfil());
-
+        perfil.setEstado(estado);
+        System.out.println("verificacion proceso");
         usuario.setClave(obj.getClave());
         usuario.setFuncionario(funcionario);
-        usuario.setNombreusuario(obj.getNombreusuario());
         usuario.setPerfil(perfil);
+        usuario.setNombreusuario(obj.getNombreusuario());
 
         getUsuarioDAO().agregar(usuario);
         return true;

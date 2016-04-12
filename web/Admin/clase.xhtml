@@ -17,7 +17,7 @@
                         <p:overlayPanel id="datos" for="agregar" hideEffect="fade" style="background-color: scrollbar">
                             <p:panelGrid columns="2" style="width: 400px">
                                 <h:outputLabel value="Nombre de la clase: *" />
-                                <p:inputText id="nombre" value="#{claseBean.nombre}" required="true" label="Clase">
+                                <p:inputText id="nombre" value="#{claseBean.descclase}" required="true" label="Clase">
                                     <f:validateLength minimum="2"/>
                                 </p:inputText>
                                 <h:outputLabel value="Los campos con * son obligatorios"  style="font-style: italic; color: #045491"/>
@@ -30,7 +30,7 @@
                         </p:menubar>   
                         <p:messages closable="true" showSummary="true"/> 
 
-                        <p:dataTable var="cla" value="#{claseBean.claseLista()}" id="claseList" editable="true" style="width: 500px" 
+                        <p:dataTable var="cla" value="#{claseBean.listado()}" id="claseList" editable="true" style="width: 500px" 
                                      scrollHeight="300">  
                             <p:menubar />
                             <f:facet name="header">  

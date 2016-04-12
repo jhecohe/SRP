@@ -30,9 +30,9 @@
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://localhost:5432/medelegal"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/medilegal"/>
         <property name="username" value="postgres"/>
-        <property name="password" value="medelegal"/>
+        <property name="password" value="medilegal"/>
     </bean> 
     
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -194,6 +194,7 @@
         <property name="subareaBO" ref="subareaBO"></property>
         <property name="funcionarioBO" ref="funcionarioBO"></property>
         <property name="estadoBO" ref="estadoBO"></property>
+        <property name="riesgoBO" ref="riesgoBO"></property>
     </bean>
     <bean id="tipoprocesoBO" class="com.srp.bo.TipoprocesoImpBO">
         <property name="tipoprocesoDAO" ref="tipoprocesoDAO"></property>

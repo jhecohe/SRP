@@ -21,6 +21,7 @@ public class CargoImpBO {
     
     public boolean agregar (CargoBean obj){
         Cargo cargo = new Cargo();
+        cargo.setDesccargo(obj.getDesccargo());
         getCargoDAO().agregar(cargo);
         return true;
     }
